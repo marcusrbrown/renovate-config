@@ -1,0 +1,16 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Use Marcus' personal config presets",
+  "extends": [
+    ":timezone(America/Phoenix)",
+    ":assignAndReview(@marcusrbrown)",
+    ":automergeBranch",
+    ":updateNotScheduled"
+  ],
+  "ignorePresets": [
+    ":prConcurrentLimit20"
+  ],
+  "suppressNotifications": [
+    "prIgnoreNotification"
+  ]
+}
