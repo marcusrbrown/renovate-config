@@ -1,12 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Onboarding config preset used for @marcusrbrown repositories",
-  "extends": ["github>marcusrbrown/.github"],
+  "extends": ["github>marcusrbrown/renovate-config"],
   "onboardingConfig": {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "description": "Use {{repository}} repository preset config",
+    "description": "Use the config preset for @{{{repository}}}",
     "extends": [
-      "local>marcusrbrown/.github"
+      "github>marcusrbrown/renovate-config"
     ]
   },
   "onboardingConfigFileName": ".github/renovate.json",
