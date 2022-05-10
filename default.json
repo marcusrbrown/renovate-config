@@ -3,6 +3,6 @@
   "description": "Use the default config preset for all @marcusrbrown repositories",
   "extends": [
     "github>bfra-me/renovate-config",
-    "local>marcusrbrown/.github:personal"
+    "local>marcusrbrown/renovate-config:personal"
   ]
 }
