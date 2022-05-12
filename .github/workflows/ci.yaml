@@ -19,10 +19,9 @@ jobs:
       matrix:
         file:
           - default
+          - onboarding
           - personal
-          - renovate-config
-          # .github/renovate.json is validated by `renovate` during loading for each preset.
-          # - .github/renovate
+          # - .github/renovate   # is validated by `renovate` during loading for each preset.
     env:
       RENOVATE_CONFIG_FILE: ${{ matrix.file }}.json
 
