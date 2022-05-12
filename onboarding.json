@@ -9,6 +9,5 @@
     ]
   },
   "onboardingConfigFileName": ".github/renovate.json",
-  "onboardingPrTitle": "feat: configure Renovate",
-  "printConfig": true
+  "onboardingPrTitle": "feat: configure Renovate"
 }
