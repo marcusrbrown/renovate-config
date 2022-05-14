@@ -1,8 +1,13 @@
 {
   "name": "@marcusrbrown/renovate-config",
+  "description": "![ci](https://github.com/marcusrbrown/renovate-config/workflows/ci/badge.svg)",
   "version": "0.0.0-development",
   "private": true,
-  "description": "![ci](https://github.com/marcusrbrown/renovate-config/workflows/ci/badge.svg)",
+  "packageManager": "yarn@3.2.1",
+  "engines": {
+    "node": ">=16",
+    "npm": ">=8"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +16,9 @@
     "type": "git",
     "url": "git+https://github.com/marcusrbrown/renovate-config.git"
   },
-  "keywords": ["renovate-config"],
+  "keywords": [
+    "renovate-config"
+  ],
   "author": "Marcus R. Brown <contact@marcusrbrown.com> (https://marcusrbrown.com/)",
   "license": "MIT",
   "bugs": {
