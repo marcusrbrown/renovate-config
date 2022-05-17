@@ -9,5 +9,5 @@
     ]
   },
   "onboardingConfigFileName": ".github/renovate.json",
-  "onboardingPrTitle": "feat: configure Renovate"
+  "onboardingPrTitle": "feat(deps): configure Renovate"
 }
