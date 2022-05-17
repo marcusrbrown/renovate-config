@@ -2,8 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Use the default config preset for all @marcusrbrown repositories",
   "extends": [
-    "local>marcusrbrown/renovate-config:onboarding",
     "github>bfra-me/renovate-config",
+    "local>marcusrbrown/renovate-config:onboarding",
     "local>marcusrbrown/renovate-config:personal"
   ]
 }
