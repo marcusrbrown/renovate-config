@@ -3,7 +3,6 @@
   "description": "Onboarding config preset used for @marcusrbrown repositories",
   "onboardingConfig": {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "description": "Use the config preset for @{{{repository}}}",
     "extends": [
       "github>marcusrbrown/renovate-config"
     ]
