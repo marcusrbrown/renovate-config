@@ -3,11 +3,13 @@
   "description": "Use Marcus' personal config presets",
   "extends": [
     ":timezone(America/Phoenix)",
+    ":dependencyDashboard",
     ":assignee(@marcusrbrown)",
     ":automergeBranch",
     ":automergeMinor",
     ":updateNotScheduled"
   ],
+  "includeForks": true,
   "ignorePresets": [
     ":prConcurrentLimit20"
   ],
