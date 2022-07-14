@@ -7,7 +7,8 @@
     ":assignee(@marcusrbrown)",
     ":automergeBranch",
     ":automergeMinor",
-    ":updateNotScheduled"
+    ":updateNotScheduled",
+    ":prConcurrentLimit0"
   ],
   "includeForks": true,
   "ignorePresets": [
