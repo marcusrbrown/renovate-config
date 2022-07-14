@@ -8,7 +8,7 @@
     ":automergeBranch",
     ":automergeMinor",
     ":updateNotScheduled",
-    ":prConcurrentLimit0"
+    ":prConcurrentLimitNone"
   ],
   "includeForks": true,
   "ignorePresets": [
