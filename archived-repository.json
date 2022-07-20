@@ -9,6 +9,9 @@
     ":disablePrControls",
     ":disableVulnerabilityAlerts"
   ],
-  "enabledManagers": [null],
+  "enabledManagers": ["npm"],
+  "npm": {
+    "enabled": false
+  },
   "dependencyDashboardAutoclose": false
 }
