@@ -21,6 +21,7 @@ jobs:
           - default
           - onboarding
           - personal
+          - archived-repository
           # - .github/renovate   # is validated by `renovate` during loading for each preset.
     env:
       RENOVATE_CONFIG_FILE: ${{ matrix.file }}.json
