@@ -1,0 +1,17 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Configure Renovate for an archived repository",
+  "extends": [
+    "github>bfra-me/renovate-config",
+    ":automergeDisabled",
+    ":disableDependencyDashboard",
+    ":disableLockFiles",
+    ":disablePrControls",
+    ":disableVulnerabilityAlerts"
+  ],
+  "enabledManagers": ["npm"],
+  "npm": {
+    "enabled": false
+  },
+  "dependencyDashboardAutoclose": false
+}
