@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Configure Renovate for an archived repository",
+  "description": "Configure Renovate for an archived repository.",
   "extends": [
     "github>bfra-me/renovate-config",
     ":automergeDisabled",
@@ -13,5 +13,7 @@
   "npm": {
     "enabled": false
   },
-  "dependencyDashboardAutoclose": false
+  "dependencyDashboardAutoclose": false,
+  "dependencyDashboardFooter": "This issue belongs to a project that is using the [archived-repository](https://github.com/marcusrbrown/renovate-config/blob/1d7fa6ceb51782cf0817ca908ea2ea71874409ae/archived-repository.json) config preset and should be closed.",
+  "ignorePrAuthor": true
 }
