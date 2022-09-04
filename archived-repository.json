@@ -5,15 +5,18 @@
     ":automergeDisabled",
     ":disablePrControls",
     ":disableRateLimiting",
+    ":disableVulnerabilityAlerts",
     ":updateNotScheduled"
   ],
+  "dependencyDashboardApproval": false,
   "dependencyDashboardAutoclose": true,
   "dependencyDashboardHeader": "This issue belongs to a repository that is using the [archived-repository](https://github.com/marcusrbrown/renovate-config/blob/main/archived-repository.json) Renovate config preset and should be closed.",
+  "dependencyDashboardLabels": ["archived-repository"],
   "enabledManagers": ["npm"],
   "includeForks": true,
   "ignorePrAuthor": true,
   "lockFileMaintenance": {
-    "recreateClosed": false,
+    "enabled": true,
     "schedule": []
   },
   "packageRules": [
@@ -23,5 +26,7 @@
       "matchManagers": ["npm"]
     }
   ],
-  "prHeader": "This PR belongs to a repository that is using the [archived-repository](https://github.com/marcusrbrown/renovate-config/blob/main/archived-repository.json) Renovate config preset and should be closed."
+  "prHeader": "This PR belongs to a repository that is using the [archived-repository](https://github.com/marcusrbrown/renovate-config/blob/main/archived-repository.json) Renovate config preset and should be closed.",
+  "rebaseWhen": "never",
+  "recreateClosed": false
 }
