@@ -3,13 +3,8 @@
   "description": "Configure Renovate for an archived repository.",
   "extends": [
     ":automergeDisabled",
-    ":disableDependencyDashboard",
-    ":disableDigestUpdates",
-    ":disableLockFiles",
     ":disablePrControls",
     ":disableRateLimiting",
-    ":disableVulnerabilityAlerts",
-    ":maintainLockFilesDisabled",
     ":updateNotScheduled"
   ],
   "dependencyDashboardAutoclose": true,
@@ -17,16 +12,15 @@
   "enabledManagers": ["npm"],
   "includeForks": true,
   "ignorePrAuthor": true,
+  "lockFileMaintenance": {
+    "recreateClosed": false,
+    "schedule": []
+  },
   "packageRules": [
     {
       "description": "Disable package updates from the `npm` package manager.",
       "enabled": false,
       "matchManagers": ["npm"]
-    },
-    {
-      "description": "Disable package updates from the `lockFileMaintenance` update type.",
-      "enabled": false,
-      "matchUpdateTypes": ["lockFileMaintenance"]
     }
   ],
   "prHeader": "This PR belongs to a repository that is using the [archived-repository](https://github.com/marcusrbrown/renovate-config/blob/main/archived-repository.json) Renovate config preset and should be closed."
