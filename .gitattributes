@@ -1,6 +1,10 @@
 # Auto detect text files and perform LF normalization
 * text=auto eol=lf
 
-# Avoid creating huge diffs when merging
-/.yarn/releases/** binary
-/.yarn/plugins/** binary
+# Treat Yarn package caches as binary; support files as vendored (to keep them from polluting stats)
+*.zip binary
+.pnp.cjs linguist-vendored
+.pnp.loader.mjs linguist-vendored
+.yarn/releases/* linguist-vendored
+.yarn/plugins/* linguist-vendored
+.yarn/sdks/* linguist-vendored
