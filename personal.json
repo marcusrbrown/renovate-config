@@ -5,9 +5,7 @@
     ":timezone(America/Phoenix)",
     ":dependencyDashboard",
     ":assignee(@marcusrbrown)",
-    ":automergeBranch",
     ":automergeMinor",
-    ":updateNotScheduled",
     ":prConcurrentLimitNone"
   ],
   "includeForks": true,
