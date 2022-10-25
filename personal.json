@@ -10,5 +10,6 @@
   "suppressNotifications": ["prIgnoreNotification"],
   "vulnerabilityAlerts": {
     "automerge": true
-  }
+  },
+  "schedule": ["at any time"]
 }
