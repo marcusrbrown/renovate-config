@@ -2,20 +2,13 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Use Marcus' personal config presets",
   "extends": [
-    ":timezone(America/Phoenix)",
-    ":dependencyDashboard",
     ":assignee(@marcusrbrown)",
     ":automergeMinor",
     ":prConcurrentLimitNone"
   ],
   "includeForks": true,
-  "ignorePresets": [
-    ":prConcurrentLimit20"
-  ],
-  "suppressNotifications": [
-    "prIgnoreNotification"
-  ],
+  "suppressNotifications": ["prIgnoreNotification"],
   "vulnerabilityAlerts": {
-    "dependencyDashboardApproval": false
+    "automerge": true
   }
 }
