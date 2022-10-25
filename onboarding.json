@@ -3,10 +3,6 @@
   "description": "Onboarding config preset used for @marcusrbrown repositories",
   "onboardingConfig": {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [
-      "github>marcusrbrown/renovate-config"
-    ]
-  },
-  "onboardingConfigFileName": ".github/renovate.json",
-  "onboardingPrTitle": "feat(deps): configure Renovate"
+    "extends": ["github>marcusrbrown/renovate-config"]
+  }
 }
