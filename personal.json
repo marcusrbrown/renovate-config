@@ -1,12 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Use Marcus' personal config presets",
+  "description": "Include personal config presets",
   "extends": [
     ":assignee(@marcusrbrown)",
     ":automergeMinor",
-    ":prConcurrentLimitNone"
+    ":prConcurrentLimitNone",
+    ":pinAllExceptPeerDependencies"
   ],
-  "includeForks": true,
   "suppressNotifications": ["prIgnoreNotification"],
   "vulnerabilityAlerts": {
     "automerge": true
