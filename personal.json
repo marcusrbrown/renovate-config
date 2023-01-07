@@ -3,7 +3,6 @@
   "description": "Include personal config presets",
   "extends": [
     ":assignee(@marcusrbrown)",
-    ":automergeMinor",
     ":prConcurrentLimitNone",
     ":pinAllExceptPeerDependencies"
   ],
