@@ -8,7 +8,7 @@
   ],
   "suppressNotifications": ["prIgnoreNotification"],
   "vulnerabilityAlerts": {
-    "automerge": true
+    "extends": ["github>bfra-me/renovate-config:automerge/enabled"]
   },
   "schedule": ["at any time"]
 }
