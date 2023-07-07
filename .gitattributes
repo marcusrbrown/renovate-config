@@ -2,9 +2,6 @@
 * text=auto eol=lf
 
 # Treat Yarn package caches as binary; support files as vendored (to keep them from polluting stats)
-*.zip binary
-.pnp.cjs linguist-vendored
-.pnp.loader.mjs linguist-vendored
-.yarn/releases/* linguist-vendored
-.yarn/plugins/* linguist-vendored
-.yarn/sdks/* linguist-vendored
+*.zip     binary
+/.pnp.*   binary linguist-generated
+/.yarn/** linguist-vendored
