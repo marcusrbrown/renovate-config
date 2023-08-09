@@ -1,0 +1,15 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  description: 'Use the config preset for the @marcusrbrown/renovate-config repository',
+  extends: ['local>marcusrbrown/renovate-config'],
+  regexManagers: [
+    {
+      datasourceTemplate: 'github-releases',
+      fileMatch: ['^default\\.json$'],
+      matchStrings: [
+        '["\']github>(?<depName>bfra-me\\/renovate-config)(?:(?::|\\/\\/)(?<path>.+?))?#(?<currentValue>.+?)["\']',
+      ],
+      versioningTemplate: 'semver',
+    },
+  ],
+}
