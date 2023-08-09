@@ -10,6 +10,8 @@
   },
   "main": "index.js",
   "scripts": {
+    "check-format": "prettier --check .",
+    "format": "prettier --write .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +29,7 @@
   "homepage": "https://github.com/marcusrbrown/renovate-config#readme",
   "devDependencies": {
     "conventional-changelog-conventionalcommits": "6.1.0",
+    "prettier": "^3.0.1",
     "semantic-release": "21.0.7"
   }
 }
