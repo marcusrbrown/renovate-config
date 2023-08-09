@@ -29,6 +29,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["conventional-changelog-conventionalcommits", "npm:6.1.0"],\
+            ["prettier", "npm:3.0.1"],\
             ["semantic-release", "npm:21.0.7"]\
           ],\
           "linkType": "SOFT"\
@@ -113,6 +114,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@marcusrbrown/renovate-config", "workspace:."],\
             ["conventional-changelog-conventionalcommits", "npm:6.1.0"],\
+            ["prettier", "npm:3.0.1"],\
             ["semantic-release", "npm:21.0.7"]\
           ],\
           "linkType": "SOFT"\
@@ -4064,6 +4066,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["postcss-selector-parser", "npm:6.0.13"],\
             ["cssesc", "npm:3.0.0"],\
             ["util-deprecate", "npm:1.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["prettier", [\
+        ["npm:3.0.1", {\
+          "packageLocation": "./.yarn/cache/prettier-npm-3.0.1-d00deab00c-e1f3f16c7f.zip/node_modules/prettier/",\
+          "packageDependencies": [\
+            ["prettier", "npm:3.0.1"]\
           ],\
           "linkType": "HARD"\
         }]\
