@@ -1,36 +1,35 @@
-name: ci
+---
+name: CI
 
-on:
+'on':
   push:
-    branches: [main, 'renovate/**']
+    branches: [main]
   pull_request:
   workflow_dispatch:
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request_target' && github.head_ref || github.ref }}
+  group: ${{ github.workflow }}-$${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
 permissions:
   contents: read
 
 env:
-  FORCE_COLOR: 3
-  LOG_LEVEL: debug
+  FORCE_COLOR: true
 
 jobs:
   lint-renovate:
+    name: Validate Renovate presets
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-
     strategy:
       matrix:
         file:
           - default
-          - onboarding
           - personal
           - archived-repository
-          # - .github/renovate   # is validated by `renovate` during loading for each preset.
+    timeout-minutes: 10
     env:
+      LOG_LEVEL: debug
       RENOVATE_CONFIG_FILE: ${{ matrix.file }}.json
 
     steps:
@@ -39,10 +38,30 @@ jobs:
       - name: Validating ${{ env.RENOVATE_CONFIG_FILE }}
         run: npx -p renovate renovate-config-validator
 
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@e33196f7422957bea03ed53f6fbb155025ffc7b8 # v3.7.0
+        with:
+          node-version: 'lts/*'
+
+      - name: Enable corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --immutable --immutable-cache
+
+      - name: Check formatting
+        run: yarn check-format
+
   release:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/${{ github.event.repository.default_branch }}'
+    if: ${{ github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
     name: Release
-    needs: lint-renovate
+    needs: [lint-renovate, lint]
     permissions:
       contents: write
       issues: write
