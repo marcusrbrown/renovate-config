@@ -65,7 +65,7 @@ __metadata:
   resolution: "@marcusrbrown/renovate-config@workspace:."
   dependencies:
     conventional-changelog-conventionalcommits: 6.1.0
-    prettier: ^3.0.1
+    prettier: 3.0.1
     semantic-release: 21.0.7
   languageName: unknown
   linkType: soft
@@ -3556,7 +3556,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.0.1":
+"prettier@npm:3.0.1":
   version: 3.0.1
   resolution: "prettier@npm:3.0.1"
   bin:
