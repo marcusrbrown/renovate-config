@@ -6,8 +6,8 @@
     {
       "extends": [
         "github>bfra-me/renovate-config:maintenance/pinGitHubActionDigestsToSemver",
-        "local>marcusrbrown/renovate-config:onboarding",
-        "local>marcusrbrown/renovate-config:personal"
+        "github>marcusrbrown/renovate-config:onboarding",
+        "github>marcusrbrown/renovate-config:personal"
       ],
       "matchRepositories": ["^marcusrbrown/"]
     }
