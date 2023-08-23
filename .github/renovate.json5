@@ -1,7 +1,7 @@
 {
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   description: 'Use the config preset for the @marcusrbrown/renovate-config repository',
-  extends: ['local>marcusrbrown/renovate-config'],
+  extends: ['github>marcusrbrown/renovate-config'],
   automergeType: 'pr',
   prCreation: 'immediate',
   regexManagers: [
