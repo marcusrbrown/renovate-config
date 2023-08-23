@@ -3,6 +3,13 @@
   "description": "Use the default config preset for all @marcusrbrown repositories",
   "extends": ["github>bfra-me/renovate-config#v1.21.0"],
   "packageRules": [
-    {"extends": ["local>marcusrbrown/renovate-config:onboarding", "local>marcusrbrown/renovate-config:personal"]}
+    {
+      "extends": [
+        "github>bfra-me/renovate-config:maintenance/pinGitHubActionDigestsToSemver",
+        "local>marcusrbrown/renovate-config:onboarding",
+        "local>marcusrbrown/renovate-config:personal"
+      ],
+      "matchRepositories": ["^marcusrbrown/"]
+    }
   ]
 }
