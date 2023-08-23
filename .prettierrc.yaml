@@ -12,7 +12,6 @@ overrides:
   - files:
       - '.vscode/*.json'
     options:
-      editorconfig: false
       tabWidth: 4
   - files:
       - '*.md'
