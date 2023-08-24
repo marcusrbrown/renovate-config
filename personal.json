@@ -6,5 +6,18 @@
   "vulnerabilityAlerts": {
     "extends": ["github>bfra-me/renovate-config:automerge/enabled"]
   },
-  "schedule": ["at any time"]
+  "schedule": ["at any time"],
+  "packageRules": [
+    {
+      "automergeType": "pr",
+      "prCreation": "immediate",
+      "matchRepositories": [
+        "marcusrbrown/.github",
+        "marcusrbrown/copiloting",
+        "marcusrbrown/marcusrbrown",
+        "marcusrbrown/renovate-config",
+        "marcusrbrown/sparkle"
+      ]
+    }
+  ]
 }
