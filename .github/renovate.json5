@@ -1,18 +1,18 @@
 {
-  $schema: "https://docs.renovatebot.com/renovate-schema.json",
-  description: "Use the config preset for the @marcusrbrown/renovate-config repository",
-  extends: ["github>marcusrbrown/renovate-config"],
-  automergeType: "pr",
-  prCreation: "immediate",
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  description: 'Use the config preset for the @marcusrbrown/renovate-config repository',
+  extends: ['github>marcusrbrown/renovate-config'],
+  automergeType: 'pr',
+  prCreation: 'immediate',
   regexManagers: [
     {
-      customType: "regex",
-      datasourceTemplate: "github-releases",
-      fileMatch: ["^default\\.json$"],
+      customType: 'regex',
+      datasourceTemplate: 'github-releases',
+      fileMatch: ['^default\\.json$'],
       matchStrings: [
-        "[\"']github>(?<depName>bfra-me\\/renovate-config)(?:(?::|\\/\\/)(?<path>.+?))?#(?<currentValue>.+?)[\"']",
+        '["\']github>(?<depName>bfra-me\\/renovate-config)(?:(?::|\\/\\/)(?<path>.+?))?#(?<currentValue>.+?)["\']',
       ],
-      versioningTemplate: "semver",
+      versioningTemplate: 'semver',
     },
   ],
 }
