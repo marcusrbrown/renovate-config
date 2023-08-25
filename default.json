@@ -4,11 +4,7 @@
   "extends": ["github>bfra-me/renovate-config#v1.21.0"],
   "packageRules": [
     {
-      "extends": [
-        "github>bfra-me/renovate-config:maintenance/pinGitHubActionDigestsToSemver",
-        "github>marcusrbrown/renovate-config:onboarding",
-        "github>marcusrbrown/renovate-config:personal"
-      ],
+      "extends": ["github>marcusrbrown/renovate-config:personal"],
       "matchRepositories": ["^marcusrbrown/"]
     }
   ]
