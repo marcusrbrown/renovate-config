@@ -6,6 +6,7 @@
   prCreation: 'immediate',
   regexManagers: [
     {
+      customType: 'regex',
       datasourceTemplate: 'github-releases',
       fileMatch: ['^default\\.json$'],
       matchStrings: [
