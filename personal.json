@@ -6,7 +6,7 @@
     ":assignAndReview(marcusrbrown)",
     ":prConcurrentLimitNone",
     ":pinAllExceptPeerDependencies",
-    "github>bfra-me/renovate-config:maintenance/pinGitHubActionDigestsToSemver"
+    "github>bfra-me/renovate-config:maintenance/internal"
   ],
   "suppressNotifications": ["prIgnoreNotification"],
   "vulnerabilityAlerts": {
