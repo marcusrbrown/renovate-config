@@ -3,12 +3,7 @@ branches:
   - main
 
 plugins:
-  - - '@semantic-release/commit-analyzer'
-    - releaseRules:
-        - type: docs
-          release: patch
-        - type: build
-          release: patch
+  - '@semantic-release/commit-analyzer'
 
   - - '@semantic-release/release-notes-generator'
     - presetConfig:
@@ -39,5 +34,12 @@ plugins:
   - - '@semantic-release/github'
     - releasedLabels: false
       successComment: false
+
+analyzeCommits:
+  releaseRules:
+    - type: docs
+      release: patch
+    - type: build
+      release: patch
 
 preset: conventionalcommits
