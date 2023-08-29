@@ -15,5 +15,13 @@
     "[json5]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "cSpell.words": ["automerge", "bfra", "conventionalcommits", "copiloting", "marcusrbrown"]
+    "cSpell.words": [
+        "automerge",
+        "bfra",
+        "conventionalcommits",
+        "copiloting",
+        "datasource",
+        "marcusrbrown",
+        "renovaterc"
+    ]
 }
