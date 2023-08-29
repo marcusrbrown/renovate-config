@@ -43,7 +43,6 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
         with:
-          cache: yarn
           node-version: 'lts/*'
 
       - name: Enable corepack
@@ -53,7 +52,7 @@ jobs:
         run: yarn install --immutable --immutable-cache
 
       - name: Validating ${{ env.RENOVATE_CONFIG_FILE }}
-        run: yarn dlx -p renovate renovate-config-validator
+        run: yarn renovate-config-validator
 
   lint:
     name: Lint
@@ -64,7 +63,6 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
         with:
-          cache: yarn
           node-version: 'lts/*'
 
       - name: Enable corepack
@@ -99,7 +97,6 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
         with:
-          cache: yarn
           node-version: 'lts/*'
 
       - name: Enable corepack
