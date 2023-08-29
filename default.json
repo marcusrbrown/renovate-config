@@ -6,6 +6,39 @@
     {
       "extends": ["github>marcusrbrown/renovate-config:personal"],
       "matchRepositories": ["^marcusrbrown/"]
+    },
+    {
+      "commitMessageTopic": "{{{depName}}} preset",
+      "groupName": "@marcusrbrown Renovate config preset",
+      "matchFileNames": [
+        ".github/renovate.json5",
+        ".github/renovate.json",
+        ".gitlab/renovate.json5",
+        ".gitlab/renovate.json",
+        ".renovaterc.json5",
+        ".renovaterc.json",
+        ".renovaterc",
+        "renovate.json5",
+        "renovate.json"
+      ],
+      "matchPackageNames": ["marcusrbrown/renovate-config"]
+    }
+  ],
+  "regexManagers": [
+    {
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "marcusrbrown/renovate-config",
+      "fileMatch": [
+        "^\\.github/renovate\\.json5?$",
+        "^\\.gitlab/renovate\\.json5?",
+        "^\\.renovaterc\\.json5?$",
+        "^\\.renovaterc$",
+        "^renovate\\.json5?$"
+      ],
+      "matchStrings": [
+        "[\"']github>(?<depName>marcusrbrown\\/renovate-config)(?:(?::|\\/\\/)(?<path>.+?))?#(?<currentValue>.+?)[\"']"
+      ],
+      "versioningTemplate": "semver"
     }
   ]
 }
