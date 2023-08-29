@@ -8,9 +8,9 @@
     {
       customType: 'regex',
       datasourceTemplate: 'github-releases',
-      fileMatch: ['^default\\.json$'],
+      fileMatch: ['^default\\.json$', '^personal\\.json$'],
       matchStrings: [
-        '["\']github>(?<depName>bfra-me\\/renovate-config)(?:(?::|\\/\\/)(?<path>.+?))?#(?<currentValue>.+?)["\']',
+        '["\']github>(?<depName>(bfra-me|marcusrbrown)\\/renovate-config)(?:(?::|\\/\\/)(?<path>.+?))?#(?<currentValue>.+?)["\']',
       ],
       versioningTemplate: 'semver',
     },

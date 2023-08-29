@@ -10,17 +10,6 @@
     {
       "commitMessageTopic": "{{{depName}}} preset",
       "groupName": "@marcusrbrown Renovate config preset",
-      "matchFileNames": [
-        ".github/renovate.json5",
-        ".github/renovate.json",
-        ".gitlab/renovate.json5",
-        ".gitlab/renovate.json",
-        ".renovaterc.json5",
-        ".renovaterc.json",
-        ".renovaterc",
-        "renovate.json5",
-        "renovate.json"
-      ],
       "matchPackageNames": ["marcusrbrown/renovate-config"]
     }
   ],
