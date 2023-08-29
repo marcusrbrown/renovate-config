@@ -10,7 +10,7 @@
     {
       "commitMessageTopic": "{{{depName}}} preset",
       "groupName": "@marcusrbrown Renovate config preset",
-      "matchPackageNames": ["marcusrbrown/renovate-config"]
+      "matchDepNames": ["marcusrbrown/renovate-config"]
     }
   ],
   "regexManagers": [
