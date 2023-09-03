@@ -15,6 +15,9 @@
     "[json5]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "[markdown]": {
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    },
     "cSpell.words": [
         "automerge",
         "bfra",
