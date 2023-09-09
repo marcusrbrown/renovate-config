@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/marcusrbrown/renovate-config#readme",
   "devDependencies": {
-    "conventional-changelog-conventionalcommits": "7.0.1",
+    "conventional-changelog-conventionalcommits": "7.0.2",
     "prettier": "3.0.3",
     "renovate": "36.87.7",
     "semantic-release": "21.1.1"
