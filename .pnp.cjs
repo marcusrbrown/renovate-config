@@ -28,7 +28,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
-            ["conventional-changelog-conventionalcommits", "npm:7.0.1"],\
+            ["conventional-changelog-conventionalcommits", "npm:7.0.2"],\
             ["prettier", "npm:3.0.3"],\
             ["renovate", "npm:36.87.7"],\
             ["semantic-release", "npm:21.1.1"]\
@@ -1309,7 +1309,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@marcusrbrown/renovate-config", "workspace:."],\
-            ["conventional-changelog-conventionalcommits", "npm:7.0.1"],\
+            ["conventional-changelog-conventionalcommits", "npm:7.0.2"],\
             ["prettier", "npm:3.0.3"],\
             ["renovate", "npm:36.87.7"],\
             ["semantic-release", "npm:21.1.1"]\
@@ -4692,10 +4692,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["conventional-changelog-conventionalcommits", [\
-        ["npm:7.0.1", {\
-          "packageLocation": "./.yarn/cache/conventional-changelog-conventionalcommits-npm-7.0.1-85bf38d7c0-9a3ec6dfbb.zip/node_modules/conventional-changelog-conventionalcommits/",\
+        ["npm:7.0.2", {\
+          "packageLocation": "./.yarn/cache/conventional-changelog-conventionalcommits-npm-7.0.2-f878f86efe-e17ac5970a.zip/node_modules/conventional-changelog-conventionalcommits/",\
           "packageDependencies": [\
-            ["conventional-changelog-conventionalcommits", "npm:7.0.1"],\
+            ["conventional-changelog-conventionalcommits", "npm:7.0.2"],\
             ["compare-func", "npm:2.0.0"]\
           ],\
           "linkType": "HARD"\
