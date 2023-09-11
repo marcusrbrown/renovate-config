@@ -30,7 +30,7 @@
   "devDependencies": {
     "conventional-changelog-conventionalcommits": "7.0.2",
     "prettier": "3.0.3",
-    "renovate": "36.89.0",
+    "renovate": "36.91.0",
     "semantic-release": "21.1.1"
   }
 }
