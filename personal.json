@@ -6,7 +6,7 @@
     ":assignAndReview(marcusrbrown)",
     ":prConcurrentLimitNone",
     ":pinAllExceptPeerDependencies",
-    "github>bfra-me/renovate-config:maintenance/internal#v1.25.0"
+    "github>bfra-me/renovate-config:maintenance/internal#v2.0.0"
   ],
   "suppressNotifications": ["prIgnoreNotification"],
   "vulnerabilityAlerts": {
