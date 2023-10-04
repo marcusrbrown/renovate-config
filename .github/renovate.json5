@@ -8,7 +8,7 @@
     executionMode: 'branch',
   },
   prCreation: 'immediate',
-  regexManagers: [
+  customManagers: [
     {
       customType: 'regex',
       datasourceTemplate: 'github-releases',
