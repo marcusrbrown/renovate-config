@@ -4,7 +4,7 @@
   "extends": ["github>bfra-me/renovate-config#v2.0.0"],
   "packageRules": [
     {
-      "extends": ["github>marcusrbrown/renovate-config:personal"],
+      "extends": ["github>marcusrbrown/renovate-config:personal#v2.0.0"],
       "matchRepositories": ["^marcusrbrown/"]
     },
     {
@@ -13,7 +13,7 @@
       "matchDepNames": ["marcusrbrown/renovate-config"]
     }
   ],
-  "regexManagers": [
+  "customManagers": [
     {
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "marcusrbrown/renovate-config",
