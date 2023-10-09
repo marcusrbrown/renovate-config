@@ -2,11 +2,11 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Include personal config presets",
   "extends": [
+    "github>bfra-me/renovate-config:maintenance/internal#v2.0.0",
     "github>marcusrbrown/renovate-config:onboarding#v1.9.3",
     ":assignAndReview(marcusrbrown)",
     ":prConcurrentLimitNone",
-    ":pinAllExceptPeerDependencies",
-    "github>bfra-me/renovate-config:maintenance/internal#v2.0.0"
+    ":pinAllExceptPeerDependencies"
   ],
   "suppressNotifications": ["prIgnoreNotification"],
   "vulnerabilityAlerts": {
