@@ -1173,7 +1173,7 @@ __metadata:
   dependencies:
     conventional-changelog-conventionalcommits: 7.0.2
     prettier: 3.0.3
-    renovate: 37.13.4
+    renovate: 37.13.5
     semantic-release: 22.0.5
   languageName: unknown
   linkType: soft
@@ -4411,17 +4411,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"emojibase-regex@npm:15.0.0":
-  version: 15.0.0
-  resolution: "emojibase-regex@npm:15.0.0"
-  checksum: f3759319a8a47c84eacc38ddf5c3e2aa4ea870321e73ea2e8ab2cc2492fd32a027b5748bd0d57ddb1dd1cae9bb276fced405b5ceec5efa5cff336235e6091245
+"emojibase-regex@npm:15.1.0":
+  version: 15.1.0
+  resolution: "emojibase-regex@npm:15.1.0"
+  checksum: 49177595553686bc1716535daced6025208deb19768e334926c3c90bb50390fa6bdb3fc4bc6e3b0e228c457972e8fbf3f4e6cfefe47a97c839546ea9bb5675d6
   languageName: node
   linkType: hard
 
-"emojibase@npm:15.0.0":
-  version: 15.0.0
-  resolution: "emojibase@npm:15.0.0"
-  checksum: 6cd0aee781a6e558802bb06bb389b14188496f163fe06e4f697fb6f0ec7f6b8c5abe309e787f41db0084678f9239cf56c2122057a8ba290da82bdc793e3b9c28
+"emojibase@npm:15.1.0":
+  version: 15.1.0
+  resolution: "emojibase@npm:15.1.0"
+  checksum: 44199cc6d2a9a42328dae5fd0f0d90846c552afa839f9a43be056679976acc7284824159eefff45745b2890c78db8b6a797f37faf28a34e96d3e01f4fe76e3b4
   languageName: node
   linkType: hard
 
@@ -8247,9 +8247,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:37.13.4":
-  version: 37.13.4
-  resolution: "renovate@npm:37.13.4"
+"renovate@npm:37.13.5":
+  version: 37.13.5
+  resolution: "renovate@npm:37.13.5"
   dependencies:
     "@aws-sdk/client-codecommit": 3.363.0
     "@aws-sdk/client-ec2": 3.363.0
@@ -8299,8 +8299,8 @@ __metadata:
     editorconfig: 2.0.0
     email-addresses: 5.0.0
     emoji-regex: 10.2.1
-    emojibase: 15.0.0
-    emojibase-regex: 15.0.0
+    emojibase: 15.1.0
+    emojibase-regex: 15.1.0
     extract-zip: 2.0.1
     find-packages: 10.0.4
     find-up: 5.0.0
@@ -8365,7 +8365,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 267b96c0ef581c7076febc69be00e9f6df299eef1eb017ac226224586406acc8d10e1042b5c440327702bf331d586ac6fb8dacf29e0379476d9398d6aef4ff20
+  checksum: e64377701458325f0928764b78ee2bf0e6f7f8db7ec558662b433411db844647e38023a5d21e965681ad6ad4f786b1e4ae42425ca339ba7ed60bd5d50071a6b0
   languageName: node
   linkType: hard
 
