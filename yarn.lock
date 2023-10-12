@@ -1173,7 +1173,7 @@ __metadata:
   dependencies:
     conventional-changelog-conventionalcommits: 7.0.2
     prettier: 3.0.3
-    renovate: 37.13.7
+    renovate: 37.14.0
     semantic-release: 22.0.5
   languageName: unknown
   linkType: soft
@@ -8247,9 +8247,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:37.13.7":
-  version: 37.13.7
-  resolution: "renovate@npm:37.13.7"
+"renovate@npm:37.14.0":
+  version: 37.14.0
+  resolution: "renovate@npm:37.14.0"
   dependencies:
     "@aws-sdk/client-codecommit": 3.363.0
     "@aws-sdk/client-ec2": 3.363.0
@@ -8365,7 +8365,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: e1ddddbac0887e1188e549e3b03150e10f3cdde91824ce9e1bd8d1a2543ff8bc7643096b83f16427560a10a1694909b1e224134af55582ad48c65fe2b13444a5
+  checksum: cf94d3e99614c4fb4ed9acd3a1caf7bd4ee212809e2daf4d202322f3315d395b981e3a0f53b0d5044eefb7dd505b488f7587c52837128da8ffe0045233349a3b
   languageName: node
   linkType: hard
 
