@@ -1173,7 +1173,7 @@ __metadata:
   dependencies:
     conventional-changelog-conventionalcommits: 7.0.2
     prettier: 3.0.3
-    renovate: 37.33.3
+    renovate: 37.33.4
     semantic-release: 22.0.5
   languageName: unknown
   linkType: soft
@@ -4971,12 +4971,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"git-url-parse@npm:13.1.0":
-  version: 13.1.0
-  resolution: "git-url-parse@npm:13.1.0"
+"git-url-parse@npm:13.1.1":
+  version: 13.1.1
+  resolution: "git-url-parse@npm:13.1.1"
   dependencies:
     git-up: ^7.0.0
-  checksum: 212a9b0343e9199998b6a532efe2014476a7a1283af393663ca49ac28d4768929aad16d3322e2685236065ee394dbc93e7aa63a48956531e984c56d8b5edb54d
+  checksum: 8a6111814f4dfff304149b22c8766dc0a90c10e4ea5b5d103f7c3f14b0a711c7b20fc5a9e03c0e2d29123486ac648f9e19f663d8132f69549bee2de49ee96989
   languageName: node
   linkType: hard
 
@@ -8222,9 +8222,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:37.33.3":
-  version: 37.33.3
-  resolution: "renovate@npm:37.33.3"
+"renovate@npm:37.33.4":
+  version: 37.33.4
+  resolution: "renovate@npm:37.33.4"
   dependencies:
     "@aws-sdk/client-codecommit": 3.363.0
     "@aws-sdk/client-ec2": 3.363.0
@@ -8280,7 +8280,7 @@ __metadata:
     find-packages: 10.0.4
     find-up: 5.0.0
     fs-extra: 11.1.1
-    git-url-parse: 13.1.0
+    git-url-parse: 13.1.1
     github-url-from-git: 1.5.0
     glob: 10.3.10
     global-agent: 3.0.0
@@ -8339,7 +8339,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 9b059ec76a5f762ce440dcbc64edca779db887cda498069f370514373152b1cef7966f0b090a80f32b6fc4c0d2ff001a805a5d733d0e809643aeb9fca82f2f4e
+  checksum: ba291ded0b677202a25eb361b87d8171fa8b8978ce41408fd66ebb2bf54489dd66efcb992bfd07a4a66155e6d75d5aa2027c7422733e5057d551c63d5d5413f5
   languageName: node
   linkType: hard
 
