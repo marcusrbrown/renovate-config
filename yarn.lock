@@ -1173,7 +1173,7 @@ __metadata:
   dependencies:
     conventional-changelog-conventionalcommits: 7.0.2
     prettier: 3.0.3
-    renovate: 37.35.0
+    renovate: 37.35.1
     semantic-release: 22.0.5
   languageName: unknown
   linkType: soft
@@ -6875,12 +6875,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nan@npm:^2.14.0, nan@npm:^2.17.0":
-  version: 2.17.0
-  resolution: "nan@npm:2.17.0"
+"nan@npm:^2.14.0, nan@npm:^2.18.0":
+  version: 2.18.0
+  resolution: "nan@npm:2.18.0"
   dependencies:
     node-gyp: latest
-  checksum: ec609aeaf7e68b76592a3ba96b372aa7f5df5b056c1e37410b0f1deefbab5a57a922061e2c5b369bae9c7c6b5e6eecf4ad2dac8833a1a7d3a751e0a7c7f849ed
+  checksum: 4fe42f58456504eab3105c04a5cffb72066b5f22bd45decf33523cb17e7d6abc33cca2a19829407b9000539c5cb25f410312d4dc5b30220167a3594896ea6a0a
   languageName: node
   linkType: hard
 
@@ -7982,14 +7982,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"re2@npm:1.20.3":
-  version: 1.20.3
-  resolution: "re2@npm:1.20.3"
+"re2@npm:1.20.5":
+  version: 1.20.5
+  resolution: "re2@npm:1.20.5"
   dependencies:
     install-artifact-from-github: ^1.3.3
-    nan: ^2.17.0
+    nan: ^2.18.0
     node-gyp: ^9.4.0
-  checksum: 3d03f3357ab2a4605129dd16cd21bacda8f8c5b0e1bb226862d27c30d964d7bfcbcebcf95b91c368e44abf4502c71406547e9dedd2644ede9b4a8924b1cbd883
+  checksum: 94979a62e52cd35530ea496c64e9bc10266265ce8fb8ed233184b99c035d1cfe8e353bb46e0f5ac1648f0496bda28bc39026d71a32c7078e4b4daa984a7c510e
   languageName: node
   linkType: hard
 
@@ -8222,9 +8222,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:37.35.0":
-  version: 37.35.0
-  resolution: "renovate@npm:37.35.0"
+"renovate@npm:37.35.1":
+  version: 37.35.1
+  resolution: "renovate@npm:37.35.1"
   dependencies:
     "@aws-sdk/client-codecommit": 3.363.0
     "@aws-sdk/client-ec2": 3.363.0
@@ -8313,7 +8313,7 @@ __metadata:
     p-throttle: 4.1.1
     parse-link-header: 2.0.0
     prettier: 2.8.8
-    re2: 1.20.3
+    re2: 1.20.5
     redis: 4.6.10
     remark: 13.0.0
     remark-github: 10.1.0
@@ -8339,7 +8339,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: cf35335301a50662019c387daac4f8dc87d93e223061e07894d7c2ebf75bf8da22ade0f86fde788f3764e84cffc31f09952c09c7166e4908fc9241aa5bad77d6
+  checksum: f6f1aafc46504ba079e5c99854798f9b74e9e475832642de3b94fc6f34b3d5af1d6d7f78aedaab3bf294b33f1891cce322f68ad077a4af67dba5e55374a1a92c
   languageName: node
   linkType: hard
 
