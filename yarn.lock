@@ -1152,8 +1152,8 @@ __metadata:
   resolution: "@marcusrbrown/renovate-config@workspace:."
   dependencies:
     conventional-changelog-conventionalcommits: 7.0.2
-    prettier: 3.0.3
-    renovate: 37.53.1
+    prettier: 3.1.0
+    renovate: 37.56.4
     semantic-release: 22.0.7
   languageName: unknown
   linkType: soft
@@ -2104,17 +2104,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@renovatebot/pep440@npm:3.0.10":
-  version: 3.0.10
-  resolution: "@renovatebot/pep440@npm:3.0.10"
-  checksum: 04baa3b82ca01dbc4fff795499b3ead2804c2462c44feff0ce3c89355fe9aaf0d3b55fb354a222fa6ac73b6da29ba8a1e2c438ccc1c844d75109667b0c33e3f3
+"@renovatebot/pep440@npm:3.0.11":
+  version: 3.0.11
+  resolution: "@renovatebot/pep440@npm:3.0.11"
+  checksum: 43c5e5a6dd1cba039889c7cad8282fcac9c08d30003843a1fb0dfdb6c58846055b3f614bb70ea715d81265c26439c918b483b56e2ae642b24d9c3a6516271e67
   languageName: node
   linkType: hard
 
-"@renovatebot/ruby-semver@npm:3.0.17":
-  version: 3.0.17
-  resolution: "@renovatebot/ruby-semver@npm:3.0.17"
-  checksum: 5aa18321eb8e15acf303b90fd6dda1310264142a0dc3d383114339f366818b9df74ee3aea6207d6322aba0845a329d4fd8d484985cc6ced3b501928e75881a8f
+"@renovatebot/ruby-semver@npm:3.0.18":
+  version: 3.0.18
+  resolution: "@renovatebot/ruby-semver@npm:3.0.18"
+  checksum: a8342c4b9881a32e439511376914c3dc0cf00c463c2837468a3edd7d6df6df94e2845aac69b15140c038f86338a4ef0c32fc74ec6c99b68010c9f681a61ff183
   languageName: node
   linkType: hard
 
@@ -7764,6 +7764,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier@npm:3.1.0":
+  version: 3.1.0
+  resolution: "prettier@npm:3.1.0"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: 44b556bd56f74d7410974fbb2418bb4e53a894d3e7b42f6f87779f69f27a6c272fa7fc27cec0118cd11730ef3246478052e002cbd87e9a253f9cd04a56aa7d9b
+  languageName: node
+  linkType: hard
+
 "proc-log@npm:^3.0.0":
   version: 3.0.0
   resolution: "proc-log@npm:3.0.0"
@@ -8158,9 +8167,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:37.53.1":
-  version: 37.53.1
-  resolution: "renovate@npm:37.53.1"
+"renovate@npm:37.56.4":
+  version: 37.56.4
+  resolution: "renovate@npm:37.56.4"
   dependencies:
     "@aws-sdk/client-codecommit": 3.363.0
     "@aws-sdk/client-ec2": 3.363.0
@@ -8182,8 +8191,8 @@ __metadata:
     "@opentelemetry/semantic-conventions": 1.17.0
     "@qnighy/marshal": 0.1.3
     "@renovatebot/osv-offline": 1.3.8
-    "@renovatebot/pep440": 3.0.10
-    "@renovatebot/ruby-semver": 3.0.17
+    "@renovatebot/pep440": 3.0.11
+    "@renovatebot/ruby-semver": 3.0.18
     "@sindresorhus/is": 4.6.0
     "@types/ms": 0.7.33
     "@types/tmp": 0.2.5
@@ -8275,7 +8284,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 57e580aca0343da0debd4fad144ddfe534f3d7adecb5e120ee23ec9b55f4f00b2f91ec8c03c43ee50c205d1cac2b52f2a2ee943bc526de32ac4ab9bab09641c9
+  checksum: 1e9b1ee81dc227bb5f9a4b6ae5ade4f545ec38a7c57c7623a9f217ccdf038f8e45e7e9f21c6ec2bccbbab0afce1f812e0aaf646489e927a14560d6df61cdd12d
   languageName: node
   linkType: hard
 
