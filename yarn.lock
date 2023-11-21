@@ -1153,7 +1153,7 @@ __metadata:
   dependencies:
     conventional-changelog-conventionalcommits: 7.0.2
     prettier: 3.1.0
-    renovate: 37.64.0
+    renovate: 37.64.1
     semantic-release: 22.0.8
   languageName: unknown
   linkType: soft
@@ -7774,15 +7774,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:3.0.3":
-  version: 3.0.3
-  resolution: "prettier@npm:3.0.3"
-  bin:
-    prettier: bin/prettier.cjs
-  checksum: e10b9af02b281f6c617362ebd2571b1d7fc9fb8a3bd17e371754428cda992e5e8d8b7a046e8f7d3e2da1dcd21aa001e2e3c797402ebb6111b5cd19609dd228e0
-  languageName: node
-  linkType: hard
-
 "prettier@npm:3.1.0":
   version: 3.1.0
   resolution: "prettier@npm:3.1.0"
@@ -8186,9 +8177,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:37.64.0":
-  version: 37.64.0
-  resolution: "renovate@npm:37.64.0"
+"renovate@npm:37.64.1":
+  version: 37.64.1
+  resolution: "renovate@npm:37.64.1"
   dependencies:
     "@aws-sdk/client-codecommit": 3.363.0
     "@aws-sdk/client-ec2": 3.363.0
@@ -8275,7 +8266,7 @@ __metadata:
     p-queue: 6.6.2
     p-throttle: 4.1.1
     parse-link-header: 2.0.0
-    prettier: 3.0.3
+    prettier: 3.1.0
     re2: 1.20.5
     redis: 4.6.10
     remark: 13.0.0
@@ -8303,7 +8294,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: fa3ab27e676f99e4d7c2473123a4844b3bce42c1a3c86e56c9ef085a21e3c9d34244b843e0640f34c736b866cbfb164fcb3b31fa43bcac15a6721fee0080e9b7
+  checksum: ed3f1b4733d413db01dcb3b23259307e1e71decc087e6941b013320e9f1de5253318066c93cd3b413df0ec8ec45a3c8406268fe1544b1d3e6de5c784e5315c75
   languageName: node
   linkType: hard
 
