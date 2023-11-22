@@ -1153,7 +1153,7 @@ __metadata:
   dependencies:
     conventional-changelog-conventionalcommits: 7.0.2
     prettier: 3.1.0
-    renovate: 37.64.3
+    renovate: 37.65.0
     semantic-release: 22.0.8
   languageName: unknown
   linkType: soft
@@ -4999,7 +4999,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:10.3.10, glob@npm:^10.2.2, glob@npm:^10.3.3":
+"glob@npm:10.3.10, glob@npm:^10.2.2, glob@npm:^10.3.10, glob@npm:^10.3.3":
   version: 10.3.10
   resolution: "glob@npm:10.3.10"
   dependencies:
@@ -5539,13 +5539,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"install-artifact-from-github@npm:^1.3.3":
-  version: 1.3.3
-  resolution: "install-artifact-from-github@npm:1.3.3"
+"install-artifact-from-github@npm:^1.3.5":
+  version: 1.3.5
+  resolution: "install-artifact-from-github@npm:1.3.5"
   bin:
     install-from-cache: bin/install-from-cache.js
     save-to-github-cache: bin/save-to-github-cache.js
-  checksum: 586a47c1370f40139f103769e5104db3e7c2ef3ee24bea56c60d8770307a9a3e094de1e9b81603dc81d2a69a2514913bd194a7507ad232c4018fc2e07e1b1136
+  checksum: bd4fd78f2c51f59441e524994fd59ea2a293ef252e7eccf5c37cbe303b7bdf3b7278c4b49d27432b4bdfa48a463196745f932ed8037948876428dcc2b459f529
   languageName: node
   linkType: hard
 
@@ -6943,6 +6943,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-gyp@npm:^10.0.1":
+  version: 10.0.1
+  resolution: "node-gyp@npm:10.0.1"
+  dependencies:
+    env-paths: ^2.2.0
+    exponential-backoff: ^3.1.1
+    glob: ^10.3.10
+    graceful-fs: ^4.2.6
+    make-fetch-happen: ^13.0.0
+    nopt: ^7.0.0
+    proc-log: ^3.0.0
+    semver: ^7.3.5
+    tar: ^6.1.2
+    which: ^4.0.0
+  bin:
+    node-gyp: bin/node-gyp.js
+  checksum: 60a74e66d364903ce02049966303a57f898521d139860ac82744a5fdd9f7b7b3b61f75f284f3bfe6e6add3b8f1871ce305a1d41f775c7482de837b50c792223f
+  languageName: node
+  linkType: hard
+
 "node-gyp@npm:^9.0.0, node-gyp@npm:^9.4.0, node-gyp@npm:latest":
   version: 9.4.0
   resolution: "node-gyp@npm:9.4.0"
@@ -7906,14 +7926,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"re2@npm:1.20.5":
-  version: 1.20.5
-  resolution: "re2@npm:1.20.5"
+"re2@npm:1.20.8":
+  version: 1.20.8
+  resolution: "re2@npm:1.20.8"
   dependencies:
-    install-artifact-from-github: ^1.3.3
+    install-artifact-from-github: ^1.3.5
     nan: ^2.18.0
-    node-gyp: ^9.4.0
-  checksum: 94979a62e52cd35530ea496c64e9bc10266265ce8fb8ed233184b99c035d1cfe8e353bb46e0f5ac1648f0496bda28bc39026d71a32c7078e4b4daa984a7c510e
+    node-gyp: ^10.0.1
+  checksum: 9838598b3a1f769d0e549bba1cba2106d646f1b3c38a666de56e2ec5833f544ffd4c8bf6fd03bfc88b1681bbda561fc317473acbc4b8bef882bad351cbdbab48
   languageName: node
   linkType: hard
 
@@ -8162,9 +8182,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:37.64.3":
-  version: 37.64.3
-  resolution: "renovate@npm:37.64.3"
+"renovate@npm:37.65.0":
+  version: 37.65.0
+  resolution: "renovate@npm:37.65.0"
   dependencies:
     "@aws-sdk/client-codecommit": 3.363.0
     "@aws-sdk/client-ec2": 3.363.0
@@ -8252,7 +8272,7 @@ __metadata:
     p-throttle: 4.1.1
     parse-link-header: 2.0.0
     prettier: 3.1.0
-    re2: 1.20.5
+    re2: 1.20.8
     redis: 4.6.10
     remark: 13.0.0
     remark-github: 10.1.0
@@ -8279,7 +8299,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: ed893595175634886a832a00e7ad03c7d9a3596e23f92c0bc7d11d1ad78f4bcf54ca08efa7eea9215fe9a7fe87002ec4809770e82835d20c2103a4e9b0ee6e33
+  checksum: f1daef714e8a4086ae4a2a0960495e31a779e117f539a3e3ff416761ad71363e2705245bc82cb1b595a983410a763a1a2d77fcfc74768ee58069395586fdc2a7
   languageName: node
   linkType: hard
 
