@@ -1153,7 +1153,7 @@ __metadata:
   dependencies:
     conventional-changelog-conventionalcommits: 7.0.2
     prettier: 3.1.0
-    renovate: 37.65.2
+    renovate: 37.65.3
     semantic-release: 22.0.8
   languageName: unknown
   linkType: soft
@@ -5405,10 +5405,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ignore@npm:5.2.4, ignore@npm:^5.2.4":
-  version: 5.2.4
-  resolution: "ignore@npm:5.2.4"
-  checksum: 3d4c309c6006e2621659311783eaea7ebcd41fe4ca1d78c91c473157ad6666a57a2df790fe0d07a12300d9aac2888204d7be8d59f9aaf665b1c7fcdb432517ef
+"ignore@npm:5.3.0, ignore@npm:^5.2.4":
+  version: 5.3.0
+  resolution: "ignore@npm:5.3.0"
+  checksum: 2736da6621f14ced652785cb05d86301a66d70248597537176612bd0c8630893564bd5f6421f8806b09e8472e75c591ef01672ab8059c07c6eb2c09cefe04bf9
   languageName: node
   linkType: hard
 
@@ -8182,9 +8182,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:37.65.2":
-  version: 37.65.2
-  resolution: "renovate@npm:37.65.2"
+"renovate@npm:37.65.3":
+  version: 37.65.3
+  resolution: "renovate@npm:37.65.3"
   dependencies:
     "@aws-sdk/client-codecommit": 3.363.0
     "@aws-sdk/client-ec2": 3.363.0
@@ -8248,7 +8248,7 @@ __metadata:
     got: 11.8.6
     graph-data-structure: 3.3.0
     handlebars: 4.7.8
-    ignore: 5.2.4
+    ignore: 5.3.0
     ini: 4.1.1
     js-yaml: 4.1.0
     json-dup-key-validator: 1.0.3
@@ -8299,7 +8299,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: 475de1ffc9e7b528c532d984d2ef204b015b9f41db9f133c410bbf5a14e52fe5dabbb7142905363f9e9319a82862d3986dd2e8c439ec8dd9dfef01119e86019b
+  checksum: 7415c1e21a2eebbb3c227c60cd4c1cb74bd965313d487abece698be0c90342add8617f169e76f56ef2d24cff79accc9bc0dd94a006b4e29ea83b3d8d85ec3a3c
   languageName: node
   linkType: hard
 
