@@ -1153,7 +1153,7 @@ __metadata:
   dependencies:
     conventional-changelog-conventionalcommits: 7.0.2
     prettier: 3.1.0
-    renovate: 37.68.2
+    renovate: 37.68.3
     semantic-release: 22.0.8
   languageName: unknown
   linkType: soft
@@ -6329,10 +6329,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lru-cache@npm:10.0.3, lru-cache@npm:^10.0.1, lru-cache@npm:^9.1.1 || ^10.0.0":
-  version: 10.0.3
-  resolution: "lru-cache@npm:10.0.3"
-  checksum: e4b100c5a6b2ac778c0f63711499b5098686205c57907d8c04a413270d37089112d9bd0192dfa36940eb5d94b88c7db54fdb6fd23319c8f89903cfd4323ea06c
+"lru-cache@npm:10.1.0, lru-cache@npm:^10.0.1, lru-cache@npm:^9.1.1 || ^10.0.0":
+  version: 10.1.0
+  resolution: "lru-cache@npm:10.1.0"
+  checksum: 58056d33e2500fbedce92f8c542e7c11b50d7d086578f14b7074d8c241422004af0718e08a6eaae8705cee09c77e39a61c1c79e9370ba689b7010c152e6a76ab
   languageName: node
   linkType: hard
 
@@ -8180,9 +8180,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"renovate@npm:37.68.2":
-  version: 37.68.2
-  resolution: "renovate@npm:37.68.2"
+"renovate@npm:37.68.3":
+  version: 37.68.3
+  resolution: "renovate@npm:37.68.3"
   dependencies:
     "@aws-sdk/client-codecommit": 3.363.0
     "@aws-sdk/client-ec2": 3.363.0
@@ -8254,7 +8254,7 @@ __metadata:
     json5: 2.2.3
     jsonata: 2.0.3
     klona: 2.0.6
-    lru-cache: 10.0.3
+    lru-cache: 10.1.0
     luxon: 3.4.4
     markdown-it: 13.0.2
     markdown-table: 2.0.0
@@ -8297,7 +8297,7 @@ __metadata:
   bin:
     renovate: dist/renovate.js
     renovate-config-validator: dist/config-validator.js
-  checksum: dddf97a2d53c18ae3cbeb2c266930d5273e14af553702d18e769425d28464b3da426e582d845ebcb298537d6a5d5d4144b06706f868c6ad0f01db20d17433be8
+  checksum: 9296d635ad3f3969ebb21b929aaee89417b57fc9dd2b9f28729f02123fd49bbef4c5432c74526da99849e248ce61b596dbaf04fe4f97b617b00420a1c014fc48
   languageName: node
   linkType: hard
 
