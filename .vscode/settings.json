@@ -1,11 +1,6 @@
 {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
-    "search.exclude": {
-        "**/.yarn": true,
-        "**/.pnp.*": true
-    },
-    "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },

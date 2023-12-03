@@ -10,7 +10,7 @@
     },
   ],
   postUpgradeTasks: {
-    commands: ['yarn install', 'yarn run format'],
+    commands: ['corepack enable', 'pnpm install --frozen-lockfile', 'pnpm run format'],
     executionMode: 'branch',
   },
   prCreation: 'immediate',

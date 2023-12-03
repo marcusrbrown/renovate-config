@@ -3,10 +3,10 @@
   "description": "![ci](https://github.com/marcusrbrown/renovate-config/workflows/ci/badge.svg)",
   "version": "0.0.0-development",
   "private": true,
-  "packageManager": "yarn@3.7.0",
+  "packageManager": "pnpm@8.7.0",
   "engines": {
     "node": ">=16",
-    "npm": ">=8"
+    "pnpm": ">=8"
   },
   "main": "index.js",
   "scripts": {
