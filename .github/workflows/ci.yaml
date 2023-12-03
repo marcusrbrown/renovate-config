@@ -121,4 +121,4 @@ jobs:
           GIT_COMMITTER_NAME: 'mrbro-bot[bot]'
           GITHUB_TOKEN: ${{ steps.get-workflow-app-token.outputs.token }}
         name: Semantic Release
-        run: pnpm exec semantic-release --dry-run ${{ env.DRY_RUN }}
+        run: pnpm exec semantic-release --dry-run ${{ env.DRY_RUN }} --ci ${{ env.DRY_RUN != 'true' }}
