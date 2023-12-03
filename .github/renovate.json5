@@ -18,5 +18,9 @@
       ],
       versioningTemplate: 'semver',
     },
+    {
+      extends: ['schedule:daily'],
+      matchPackageNames: ['ghcr.io/renovatebot/renovate', 'renovatebot/renovate'],
+    },
   ],
 }
