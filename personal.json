@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Include personal config presets",
+  "description": "Include @marcusrbrown's personal config presets",
   "extends": [
     "github>bfra-me/renovate-config:maintenance/internal#v2.1.0",
     "github>marcusrbrown/renovate-config:onboarding#v1.9.4",
@@ -20,6 +20,10 @@
       "matchRepositories": [
         "marcusrbrown/.github",
         "marcusrbrown/copiloting",
+        "marcusrbrown/dockerfiles",
+        "marcusrbrown/esphome-life",
+        "marcusrbrown/gpt",
+        "marcusrbrown/ha-config",
         "marcusrbrown/marcusrbrown",
         "marcusrbrown/renovate-config",
         "marcusrbrown/sparkle"
