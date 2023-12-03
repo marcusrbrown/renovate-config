@@ -3,6 +3,12 @@
   description: 'Use the config preset for the @marcusrbrown/renovate-config repository',
   extends: ['github>marcusrbrown/renovate-config#v1.7.0'],
   automergeType: 'pr',
+  packageRules: [
+    {
+      extends: ['schedule:daily'],
+      matchPackageNames: ['ghcr.io/renovatebot/renovate', 'renovatebot/renovate'],
+    },
+  ],
   postUpgradeTasks: {
     commands: ['yarn install', 'yarn run format'],
     executionMode: 'branch',
