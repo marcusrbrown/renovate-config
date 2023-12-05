@@ -12,8 +12,8 @@ devDependencies:
     specifier: 3.1.0
     version: 3.1.0
   renovate:
-    specifier: 37.85.0
-    version: 37.85.0(typanion@3.14.0)
+    specifier: 37.86.0
+    version: 37.86.0(typanion@3.14.0)
   semantic-release:
     specifier: 22.0.8
     version: 22.0.8
@@ -5396,8 +5396,8 @@ packages:
       - supports-color
     dev: true
 
-  /renovate@37.85.0(typanion@3.14.0):
-    resolution: {integrity: sha512-/sGonysN2yfDtWJCxUWYE69DAnkuTC3O8GzedlCTnvuXSLfG6ca1nBjQt2MGz915AGQPQ571Ge6AkMtqoGc7KQ==}
+  /renovate@37.86.0(typanion@3.14.0):
+    resolution: {integrity: sha512-aAGVD14HCr+9Q2hXrirRo4qSi41W65HsR7nLnrRFWwe8fZQjZ6/uTeVi4NtPmMA2jCbZV5n7EY5Cqn0kvsYrXA==}
     engines: {node: ^18.12.0 || >=20.0.0, pnpm: ^8.0.0}
     hasBin: true
     dependencies:
@@ -6211,6 +6211,7 @@ packages:
 
   /undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+    requiresBuild: true
     dev: true
 
   /unicode-emoji-modifier-base@1.0.0:
