@@ -3,7 +3,7 @@
   "description": "![ci](https://github.com/marcusrbrown/renovate-config/workflows/ci/badge.svg)",
   "version": "0.0.0-development",
   "private": true,
-  "packageManager": "pnpm@8.12.0",
+  "packageManager": "pnpm@8.12.1",
   "engines": {
     "node": ">=16",
     "pnpm": ">=8"
