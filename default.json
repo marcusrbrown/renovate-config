@@ -4,7 +4,7 @@
   "extends": ["github>bfra-me/renovate-config#v2.1.0"],
   "packageRules": [
     {
-      "extends": ["github>marcusrbrown/renovate-config:personal#v1.11.1"],
+      "extends": ["github>marcusrbrown/renovate-config:personal#v1.12.0"],
       "matchRepositories": ["^marcusrbrown/"]
     },
     {
@@ -15,11 +15,12 @@
   ],
   "customManagers": [
     {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "marcusrbrown/renovate-config",
       "fileMatch": [
-        "^\\.github/renovate\\.json5?$",
-        "^\\.gitlab/renovate\\.json5?",
+        "^\\.github\\/renovate\\.json5?$",
+        "^\\.gitlab\\/renovate\\.json5?$",
         "^\\.renovaterc\\.json5?$",
         "^\\.renovaterc$",
         "^renovate\\.json5?$"
