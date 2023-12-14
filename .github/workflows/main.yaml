@@ -1,5 +1,5 @@
 ---
-name: CI
+name: main
 
 'on':
   push:
@@ -20,53 +20,21 @@ concurrency:
 permissions:
   contents: read
 
-env:
-  FORCE_COLOR: true
-
 jobs:
-  lint-renovate:
-    name: Validate Renovate presets
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        file:
-          - default
-          - archived-repository
-    timeout-minutes: 10
-    env:
-      LOG_LEVEL: debug
-      RENOVATE_CONFIG_FILE: ${{ matrix.file }}.json
-
-    steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
-
-      - name: Setup Node.js
-        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4.0.0
-        with:
-          node-version: 'lts/*'
-
-      - name: Enable corepack
-        run: corepack enable
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Validating ${{ env.RENOVATE_CONFIG_FILE }}
-        run: pnpm exec renovate-config-validator
-
   lint:
     name: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@d882d12c64e032187b2edb46d3a0d003b7a43598 # v2.4.0
+
       - name: Setup Node.js
         uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4.0.0
         with:
-          node-version: 'lts/*'
-
-      - name: Enable corepack
-        run: corepack enable
+          cache: 'pnpm'
+          node-version-file: '.node-version'
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -78,7 +46,7 @@ jobs:
     env:
       DRY_RUN: true
     name: Release
-    needs: [lint-renovate, lint]
+    needs: [lint]
     runs-on: ubuntu-latest
     steps:
       - name: Get Wokrflow Application Token
@@ -94,13 +62,14 @@ jobs:
           ref: ${{ github.head_ref }}
           token: ${{ steps.get-workflow-app-token.outputs.token }}
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@d882d12c64e032187b2edb46d3a0d003b7a43598 # v2.4.0
+
       - name: Setup Node.js
         uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4.0.0
         with:
-          node-version: 'lts/*'
-
-      - name: Enable corepack
-        run: corepack enable
+          cache: 'pnpm'
+          node-version-file: '.node-version'
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile

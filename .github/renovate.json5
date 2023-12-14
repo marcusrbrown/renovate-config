@@ -5,12 +5,30 @@
   automergeType: 'pr',
   packageRules: [
     {
-      extends: ['schedule:daily'],
-      matchPackageNames: ['ghcr.io/renovatebot/renovate', 'renovatebot/renovate'],
+      matchFileNames: ['.github/workflows/**'],
+      semanticCommitType: 'ci',
+    },
+    {
+      matchDatasources: ['docker'],
+      semanticCommitType: 'build',
+    },
+    {
+      matchDepTypes: ['dependencies'],
+      semanticCommitType: 'build',
+    },
+    {
+      matchPackageNames: [
+        '@vercel/ncc',
+        'conventional-changelog-conventionalcommits',
+        'semantic-release',
+        'typescript',
+      ],
+      matchPackagePrefixes: ['@semantic-release/'],
+      semanticCommitType: 'build',
     },
   ],
   postUpgradeTasks: {
-    commands: ['npm install -g pnpm@8', 'pnpm install --frozen-lockfile', 'pnpm run format'],
+    commands: ['npm install -g pnpm@8', 'pnpm install --frozen-lockfile', 'git checkout -- .npmrc', 'pnpm run format'],
     executionMode: 'branch',
   },
   prCreation: 'immediate',

@@ -15,11 +15,12 @@
   ],
   "customManagers": [
     {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "marcusrbrown/renovate-config",
       "fileMatch": [
-        "^\\.github/renovate\\.json5?$",
-        "^\\.gitlab/renovate\\.json5?",
+        "^\\.github\\/renovate\\.json5?$",
+        "^\\.gitlab\\/renovate\\.json5?$",
         "^\\.renovaterc\\.json5?$",
         "^\\.renovaterc$",
         "^renovate\\.json5?$"
