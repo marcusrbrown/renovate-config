@@ -3,6 +3,30 @@
   description: 'Use the config preset for the @marcusrbrown/renovate-config repository',
   extends: ['github>marcusrbrown/renovate-config#v1.7.0'],
   automergeType: 'pr',
+  packageRules: [
+    {
+      matchFileNames: ['.github/workflows/**'],
+      semanticCommitType: 'ci',
+    },
+    {
+      matchDatasources: ['docker'],
+      semanticCommitType: 'build',
+    },
+    {
+      matchDepTypes: ['dependencies'],
+      semanticCommitType: 'build',
+    },
+    {
+      matchPackageNames: [
+        '@vercel/ncc',
+        'conventional-changelog-conventionalcommits',
+        'semantic-release',
+        'typescript',
+      ],
+      matchPackagePrefixes: ['@semantic-release/'],
+      semanticCommitType: 'build',
+    },
+  ],
   postUpgradeTasks: {
     commands: ['npm install -g pnpm@8', 'pnpm install --frozen-lockfile', 'git checkout -- .npmrc', 'pnpm run format'],
     executionMode: 'branch',
