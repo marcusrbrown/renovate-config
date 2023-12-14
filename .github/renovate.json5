@@ -3,14 +3,8 @@
   description: 'Use the config preset for the @marcusrbrown/renovate-config repository',
   extends: ['github>marcusrbrown/renovate-config#v1.7.0'],
   automergeType: 'pr',
-  packageRules: [
-    {
-      extends: ['schedule:daily'],
-      matchPackageNames: ['ghcr.io/renovatebot/renovate', 'renovatebot/renovate'],
-    },
-  ],
   postUpgradeTasks: {
-    commands: ['npm install -g pnpm@8', 'pnpm install --frozen-lockfile', 'pnpm run format'],
+    commands: ['npm install -g pnpm@8', 'pnpm install --frozen-lockfile', 'git checkout -- .npmrc', 'pnpm run format'],
     executionMode: 'branch',
   },
   prCreation: 'immediate',
