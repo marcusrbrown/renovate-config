@@ -9,9 +9,6 @@
     ":pinAllExceptPeerDependencies"
   ],
   "suppressNotifications": ["prIgnoreNotification"],
-  "vulnerabilityAlerts": {
-    "extends": ["github>bfra-me/renovate-config:automerge/enabled#v2.1.0"]
-  },
   "schedule": ["at any time"],
   "packageRules": [
     {
