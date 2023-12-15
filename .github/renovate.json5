@@ -5,7 +5,7 @@
   automergeType: 'pr',
   packageRules: [
     {
-      matchFileNames: ['.github/workflows/**'],
+      matchFileNames: ['.github/workflows/main.yaml'],
       semanticCommitType: 'ci',
     },
     {

@@ -23,7 +23,6 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "marcusrbrown/renovate-config",
       "fileMatch": [
         "^\\.github\\/renovate\\.json5?$",
         "^\\.gitlab\\/renovate\\.json5?$",
