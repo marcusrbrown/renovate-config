@@ -12,11 +12,6 @@
       "groupName": "@marcusrbrown Renovate config preset",
       "groupSlug": "marcusrbrown-renovate-config-preset",
       "matchDepNames": ["marcusrbrown/renovate-config"]
-    },
-    {
-      "additionalBranchPrefix": "",
-      "branchTopic": "reconfigure",
-      "matchFileNames": [".github/renovate.json*", ".gitlab/renovate.json*", "renovate.json*", ".renovaterc*"]
     }
   ],
   "customManagers": [
