@@ -26,6 +26,10 @@
       matchPackagePrefixes: ['@semantic-release/'],
       semanticCommitType: 'build',
     },
+    {
+      matchDepNames: ['bfra-me/renovate-config'],
+      semanticCommitType: 'fix',
+    },
   ],
   postUpgradeTasks: {
     commands: ['npm install -g pnpm@8', 'pnpm install --frozen-lockfile', 'git checkout -- .npmrc', 'pnpm run format'],
