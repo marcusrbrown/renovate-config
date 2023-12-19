@@ -27,6 +27,29 @@
         "marcusrbrown/sparkle",
         "marcusrbrown/tokentoilet"
       ]
+    },
+    {
+      "description": "Automerge my project dependencies without a minimum release age.",
+      "automergeType": "branch",
+      "matchDepPatterns": ["^bfra-me\\/", "^marcusrbrown\\/"],
+      "matchPackagePatterns": ["^@bfra\\.me\\/", "^@marcusrbrown\\/"],
+      "matchSourceUrlPrefixes": ["https://github.com/bfra-me", "https://github.com/marcusrbrown"],
+      "minimumReleaseAge": null
+    },
+    {
+      "additionalBranchPrefix": "",
+      "branchTopic": "reconfigure",
+      "matchFileNames": [
+        ".github/renovate.json5",
+        ".github/renovate.json",
+        ".gitlab/renovate.json5",
+        ".gitlab/renovate.json",
+        ".renovaterc.json5",
+        ".renovaterc.json",
+        ".renovaterc",
+        "renovate.json5",
+        "renovate.json"
+      ]
     }
   ]
 }
