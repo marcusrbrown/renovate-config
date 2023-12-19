@@ -40,7 +40,7 @@
     {
       customType: 'regex',
       datasourceTemplate: 'github-releases',
-      fileMatch: ['\\.json[5]?$'],
+      fileMatch: ['\\.json[5]?$', '!renovate\\.json5$'],
       matchStrings: [
         '["\']github>(?<depName>(bfra-me|marcusrbrown)\\/renovate-config)(?:(?::|\\/\\/)(?<path>.+?))?#(?<currentValue>.+?)["\']',
       ],
