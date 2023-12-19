@@ -3,7 +3,7 @@
   "description": "Include @marcusrbrown's personal config presets",
   "extends": [
     "github>bfra-me/renovate-config:maintenance/internal#v2.3.1",
-    "github>marcusrbrown/renovate-config:onboarding#v1.15.2",
+    "github>marcusrbrown/renovate-config:onboarding#v1.15.3",
     ":assignAndReview(marcusrbrown)",
     ":prConcurrentLimitNone",
     ":pinAllExceptPeerDependencies"
