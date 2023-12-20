@@ -28,7 +28,7 @@
     },
     {
       matchDepNames: ['bfra-me/renovate-config'],
-      semanticCommitType: 'fix',
+      semanticCommitType: 'build',
     },
   ],
   postUpgradeTasks: {
@@ -40,7 +40,7 @@
     {
       customType: 'regex',
       datasourceTemplate: 'github-releases',
-      fileMatch: ['\\.json[5]?$', '!renovate\\.json5$'],
+      fileMatch: ['^archived-repository\\.json$', '^default\\.json$', '^onboarding\\.json$', '^personal\\.json$'],
       matchStrings: [
         '["\']github>(?<depName>(bfra-me|marcusrbrown)\\/renovate-config)(?:(?::|\\/\\/)(?<path>.+?))?#(?<currentValue>.+?)["\']',
       ],

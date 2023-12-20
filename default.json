@@ -9,8 +9,6 @@
     },
     {
       "commitMessageTopic": "{{{depName}}} preset",
-      "groupName": "@marcusrbrown Renovate config preset",
-      "groupSlug": "marcusrbrown-renovate-config-preset",
       "matchDepNames": ["marcusrbrown/renovate-config"]
     }
   ],
@@ -18,13 +16,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "fileMatch": [
-        "^\\.github\\/renovate\\.json5?$",
-        "^\\.gitlab\\/renovate\\.json5?$",
-        "^\\.renovaterc\\.json5?$",
-        "^\\.renovaterc$",
-        "^renovate\\.json5?$"
-      ],
+      "fileMatch": ["^\\.git(hu|la)b\\/renovate\\.json5?$", "^\\.renovaterc(\\.json5?)?$", "^renovate\\.json5?$"],
       "matchStrings": [
         "[\"']github>(?<depName>marcusrbrown\\/renovate-config)(?:(?::|\\/\\/)(?<path>.+?))?#(?<currentValue>.+?)[\"']"
       ],
