@@ -2,7 +2,6 @@
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   description: 'Use the config preset for the @marcusrbrown/renovate-config repository',
   extends: ['github>marcusrbrown/renovate-config#v1.15.4'],
-  automergeType: 'pr',
   packageRules: [
     {
       matchFileNames: ['.github/workflows/main.yaml'],
@@ -35,7 +34,6 @@
     commands: ['npm install -g pnpm@8', 'pnpm install --frozen-lockfile', 'git checkout -- .npmrc', 'pnpm run format'],
     executionMode: 'branch',
   },
-  prCreation: 'immediate',
   customManagers: [
     {
       customType: 'regex',
