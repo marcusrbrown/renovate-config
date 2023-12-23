@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Include @marcusrbrown's personal config presets",
   "extends": [
-    "github>bfra-me/renovate-config:maintenance/internal#v2.3.6",
+    "github>bfra-me/renovate-config:maintenance/internal#v2.3.7",
     ":assignAndReview(marcusrbrown)",
     ":prConcurrentLimitNone",
     ":pinAllExceptPeerDependencies"
