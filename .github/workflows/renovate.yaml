@@ -55,12 +55,16 @@ jobs:
             changes:
               - '.github/workflows/renovate.yaml'
               - '.github/renovate.json5'
+              - 'archived-repository.json'
+              - 'default.json'
+              - 'onboarding.json'
+              - 'personal.json'
       - id: should-renovate
         if: github.event_name != 'push' || steps.filter.outputs.changes == 'true'
         run: echo 'renovate=true' >> $GITHUB_OUTPUT
-      - name: Renovate
-        if: steps.should-renovate.outputs.renovate == 'true'
-        uses: bfra-me/renovate-action@ea4e4086b9480de558b8f2389450ac8dfedce10b # v2.2.6
+      - if: steps.should-renovate.outputs.renovate == 'true'
+        name: Renovate
+        uses: bfra-me/renovate-action@c4855fdc3a100e8f44714f2d0b19cd9b9237d02f # v2.2.10
         with:
           branch: ${{ github.ref != 'refs/heads/main' && github.ref_name || '' }}
           cache: ${{ github.event_name == 'push' && contains('["main", "renovate/reconfigure"]', github.ref_name) }}

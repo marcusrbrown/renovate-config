@@ -1,10 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Use the default config preset for all @marcusrbrown repositories",
-  "extends": ["github>bfra-me/renovate-config#v2.3.7"],
+  "extends": ["github>bfra-me/renovate-config#v2.4.1"],
   "packageRules": [
     {
-      "extends": ["github>marcusrbrown/renovate-config:personal#v1.15.9"],
+      "extends": ["github>marcusrbrown/renovate-config:personal#v1.15.11"],
       "matchRepositories": ["^marcusrbrown/"]
     },
     {
