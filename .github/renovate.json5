@@ -4,18 +4,7 @@
   extends: ['github>marcusrbrown/renovate-config#v1.15.11'],
   packageRules: [
     {
-      matchFileNames: ['.github/workflows/main.yaml'],
-      semanticCommitType: 'ci',
-    },
-    {
-      matchDatasources: ['docker'],
-      semanticCommitType: 'build',
-    },
-    {
-      matchDepTypes: ['dependencies'],
-      semanticCommitType: 'build',
-    },
-    {
+      matchDepNames: ['bfra-me/renovate-config'],
       matchPackageNames: [
         '@vercel/ncc',
         'conventional-changelog-conventionalcommits',
@@ -25,13 +14,14 @@
       matchPackagePrefixes: ['@semantic-release/'],
       semanticCommitType: 'build',
     },
-    {
-      matchDepNames: ['bfra-me/renovate-config'],
-      semanticCommitType: 'build',
-    },
   ],
   postUpgradeTasks: {
-    commands: ['npm install -g pnpm@8', 'pnpm install --frozen-lockfile', 'git checkout -- .npmrc', 'pnpm run format'],
+    commands: [
+      'corepack enable',
+      'pnpm install --frozen-lockfile --ignore-scripts',
+      'git checkout -- .npmrc',
+      'pnpm run format',
+    ],
     executionMode: 'branch',
   },
   customManagers: [
