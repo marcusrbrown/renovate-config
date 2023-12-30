@@ -4,7 +4,7 @@
   "extends": ["github>bfra-me/renovate-config#v2.5.0"],
   "packageRules": [
     {
-      "extends": ["github>marcusrbrown/renovate-config:personal#v1.15.12"],
+      "extends": ["github>marcusrbrown/renovate-config:personal"],
       "matchRepositories": ["^marcusrbrown/"]
     },
     {
