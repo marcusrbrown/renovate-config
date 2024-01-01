@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Configure Renovate for an archived repository.",
+  "description": ["Configure Renovate for an archived repository."],
   "extends": [
     ":automergeDisabled",
     ":disablePrControls",
