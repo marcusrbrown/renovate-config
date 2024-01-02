@@ -38,6 +38,12 @@
     {
       "additionalBranchPrefix": "",
       "branchTopic": "reconfigure",
+      "digest": {
+        "branchTopic": "reconfigure"
+      },
+      "group": {
+        "branchTopic": "reconfigure"
+      },
       "matchFileNames": [
         ".github/renovate.json5",
         ".github/renovate.json",
@@ -48,7 +54,10 @@
         ".renovaterc",
         "renovate.json5",
         "renovate.json"
-      ]
+      ],
+      "replacement": {
+        "branchTopic": "reconfigure"
+      }
     }
   ]
 }
