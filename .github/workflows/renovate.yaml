@@ -1,5 +1,5 @@
 ---
-# Renovate this repository if this workflow file or the Renovate configuration file is changed.
+# Renovate this repository if Renovate-specific tasks are checked or if dispatched.
 name: Renovate
 
 'on':
@@ -19,9 +19,10 @@ name: Renovate
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+  cancel-in-progress: false
 
-permissions: {}
+permissions:
+  contents: read
 
 jobs:
   renovate:
@@ -59,15 +60,13 @@ jobs:
               - 'default.json'
               - 'onboarding.json'
               - 'personal.json'
-      - id: should-renovate
-        if: github.event_name != 'push' || steps.filter.outputs.changes == 'true'
-        run: echo 'renovate=true' >> $GITHUB_OUTPUT
-      - if: steps.should-renovate.outputs.renovate == 'true'
+      - if: github.event_name != 'push' || steps.filter.outputs.changes == 'true'
         name: Renovate
         uses: bfra-me/renovate-action@44504b43e385d5a0cb1f3136bdefeeb1eceb2524 # v2.6.6
         with:
           branch: ${{ github.ref != 'refs/heads/main' && github.ref_name || '' }}
-          cache: ${{ github.event_name == 'push' && contains('["main", "renovate/reconfigure"]', github.ref_name) }}
+          cache: >-
+            ${{ contains('["push", "workflow_dispatch"]', github.event_name) && github.ref == 'refs/heads/main' || startsWith(github.ref_name, 'renovate/') }}
           dry_run: ${{ github.event_name == 'push' && !contains('["main", "renovate/reconfigure"]', github.ref_name) }}
           print_config: ${{ inputs.print_config }}
           renovate_app_id: ${{ secrets.APPLICATION_ID }}
