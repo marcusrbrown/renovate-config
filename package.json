@@ -3,7 +3,7 @@
   "description": "Shareable Renovate configuration presets for my personal GitHub repositories.",
   "version": "0.0.0-development",
   "private": true,
-  "packageManager": "pnpm@8.14.0",
+  "packageManager": "pnpm@8.14.1",
   "main": "default.json",
   "type": "module",
   "scripts": {
