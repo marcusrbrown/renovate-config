@@ -36,6 +36,11 @@
       "minimumReleaseAge": null
     },
     {
+      "description": "Require recent versions of my Renovate config presets.",
+      "matchPackageNames": ["marcusrbrown/renovate-config"],
+      "allowedVersions": ">=1.16.3"
+    },
+    {
       "additionalBranchPrefix": "",
       "branchTopic": "reconfigure",
       "digest": {
