@@ -9,6 +9,7 @@ plugins:
 
   - - '@semantic-release/github'
     - releasedLabels: false
+      successComment: false
 
 analyzeCommits:
   releaseRules:
