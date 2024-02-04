@@ -12,7 +12,6 @@
   "packageRules": [
     {
       "automergeType": "pr",
-      "prCreation": "immediate",
       "matchRepositories": [
         "marcusrbrown/.github",
         "marcusrbrown/copiloting",
