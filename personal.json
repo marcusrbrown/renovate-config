@@ -11,22 +11,6 @@
   "schedule": ["at any time"],
   "packageRules": [
     {
-      "automergeType": "pr",
-      "matchRepositories": [
-        "marcusrbrown/.github",
-        "marcusrbrown/copiloting",
-        "marcusrbrown/dockerfiles",
-        "marcusrbrown/esphome-life",
-        "marcusrbrown/gpt",
-        "marcusrbrown/ha-config",
-        "marcusrbrown/marcusrbrown",
-        "marcusrbrown/renovate-config",
-        "marcusrbrown/some-expect",
-        "marcusrbrown/sparkle",
-        "marcusrbrown/tokentoilet"
-      ]
-    },
-    {
       "description": "Automerge my project dependencies without a minimum release age.",
       "automergeType": "branch",
       "matchDepPatterns": ["^bfra-me\\/", "^marcusrbrown\\/"],
