@@ -32,6 +32,7 @@
       "group": {
         "branchTopic": "reconfigure"
       },
+      "groupName": null,
       "matchFileNames": [
         ".github/renovate.json5",
         ".github/renovate.json",
