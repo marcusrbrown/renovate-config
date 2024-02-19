@@ -24,6 +24,12 @@
       "allowedVersions": ">=1.16.3"
     },
     {
+      "description": "Do not pin digests for internal actions.",
+      "matchPackagePatterns": ["^bfra-me\\/", "^marcusrbrown\\/"],
+      "matchDepTypes": ["actions"],
+      "pinDigests": false
+    },
+    {
       "additionalBranchPrefix": "",
       "branchTopic": "reconfigure",
       "digest": {
