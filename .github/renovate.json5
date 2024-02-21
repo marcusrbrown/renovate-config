@@ -24,16 +24,4 @@
     ],
     executionMode: 'branch',
   },
-  customManagers: [
-    {
-      customType: 'regex',
-      datasourceTemplate: 'github-tags',
-      extractVersionTemplate: '^v?(?<version>.+)$',
-      fileMatch: ['^archived-repository\\.json$', '^default\\.json$', '^onboarding\\.json$', '^personal\\.json$'],
-      matchStrings: [
-        '["\']github>(?<depName>(bfra-me|marcusrbrown)\\/renovate-config)(?:(?::|\\/\\/)(?<path>.+?))?#(?<currentValue>.+?)["\']',
-      ],
-      versioningTemplate: 'regex:^v?(?<major>\\d+)(\\.(?<minor>\\d+)(\\.(?<patch>\\d+)))?$',
-    },
-  ],
 }
