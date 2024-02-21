@@ -20,7 +20,8 @@
       "fileMatch": ["^\\.git(hu|la)b\\/renovate\\.json5?$", "^\\.renovaterc(\\.json5?)?$", "^renovate\\.json5?$"],
       "matchStrings": [
         "[\"']github>(?<depName>marcusrbrown\\/renovate-config)(?:(?::|\\/\\/)(?<path>.+?))?#(?<currentValue>.+?)[\"']"
-      ]
+      ],
+      "versioningTemplate": "regex:^v?(?<major>\\d+)(\\.(?<minor>\\d+)(\\.(?<patch>\\d+))?$"
     }
   ]
 }
