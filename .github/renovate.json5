@@ -33,7 +33,7 @@
       matchStrings: [
         '["\']github>(?<depName>(bfra-me|marcusrbrown)\\/renovate-config)(?:(?::|\\/\\/)(?<path>.+?))?#(?<currentValue>.+?)["\']',
       ],
-      versioningTemplate: 'regex:^v?(?<major>\\d+)(\\.(?<minor>\\d+)(\\.(?<patch>\\d+))?$',
+      versioningTemplate: 'regex:^v?(?<major>\\d+)(\\.(?<minor>\\d+)(\\.(?<patch>\\d+)))?$',
     },
   ],
 }
