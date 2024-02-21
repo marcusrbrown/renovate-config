@@ -16,7 +16,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-tags",
-      "extractVersionTemplate": "^v(?<version>.+)$",
+      "extractVersionTemplate": "^v?(?<version>.+)$",
       "fileMatch": ["^\\.git(hu|la)b\\/renovate\\.json5?$", "^\\.renovaterc(\\.json5?)?$", "^renovate\\.json5?$"],
       "matchStrings": [
         "[\"']github>(?<depName>marcusrbrown\\/renovate-config)(?:(?::|\\/\\/)(?<path>.+?))?#(?<currentValue>.+?)[\"']"
