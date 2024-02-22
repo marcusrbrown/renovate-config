@@ -18,8 +18,8 @@ name: Renovate
         default: false
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: false
+  group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
+  cancel-in-progress: ${{ github.ref_name != 'main' || github.event_name != 'push'}}
 
 permissions:
   contents: read
@@ -60,15 +60,19 @@ jobs:
               - 'default.json'
               - 'onboarding.json'
               - 'personal.json'
-      - if: github.event_name != 'push' || steps.filter.outputs.changes == 'true'
-        name: Renovate
+      - name: Renovate
+        env:
+          cache: >-
+            ${{ !contains('["issues", "pull_request"]', github.event_name) && github.ref == 'refs/heads/main' || startsWith(github.ref_name, 'renovate/') }}
+          dry_run: ${{ github.event_name == 'push' && github.ref_name != 'main' }}
+        if: github.event_name != 'push' || steps.filter.outputs.changes == 'true'
         uses: bfra-me/renovate-action@2f80aa037f565c34301d8de7ed976bacbc940c89 # v3.0.5
         with:
-          branch: ${{ github.ref != 'refs/heads/main' && github.ref_name || '' }}
-          cache: >-
-            ${{ contains('["push", "workflow_dispatch"]', github.event_name) && github.ref == 'refs/heads/main' || startsWith(github.ref_name, 'renovate/') }}
-          dry_run: ${{ github.event_name == 'push' && !contains('["main", "renovate/reconfigure"]', github.ref_name) }}
+          branch: ${{ env.dry_run == 'true' && github.ref_name || '' }}
+          cache: ${{ env.cache }}
+          dry_run: ${{ env.dry_run }}
           print_config: ${{ inputs.print_config }}
           renovate_app_id: ${{ secrets.APPLICATION_ID }}
           renovate_app_pem: ${{ secrets.APPLICATION_PRIVATE_KEY }}
           renovate_app_slug: 'mrbro-bot'
+    timeout-minutes: 10
