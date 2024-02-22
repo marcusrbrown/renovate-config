@@ -30,6 +30,25 @@
       "pinDigests": false
     },
     {
+      "description": "Enable platform automerge for selected repositories.",
+      "matchRepositories": [
+        "**/containers",
+        "**/copiloting",
+        "**/esphome-life",
+        "**/fs-extra-bin",
+        "**/gala-chain-code",
+        "**/gh-app",
+        "**/gh-extensions-manifest",
+        "**/gpt",
+        "**/ha-config",
+        "**/renovate-config",
+        "**/sparkle",
+        "**/tokentoilet",
+        "**/vscode-extension"
+      ],
+      "platformAutomerge": true
+    },
+    {
       "additionalBranchPrefix": "",
       "branchTopic": "reconfigure",
       "digest": {
