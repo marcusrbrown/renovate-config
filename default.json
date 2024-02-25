@@ -1,15 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": ["Use the default config preset for all @marcusrbrown repositories"],
-  "extends": ["github>bfra-me/renovate-config"],
+  "extends": ["github>bfra-me/renovate-config", "github>bfra-me/renovate-config:internal.json5"],
   "packageRules": [
-    {
-      "extends": ["github>bfra-me/renovate-config:internal.json5", "github>marcusrbrown/renovate-config:personal"],
-      "matchRepositories": ["^marcusrbrown/"]
-    },
     {
       "commitMessageTopic": "{{{depName}}} preset",
       "matchDepNames": ["marcusrbrown/renovate-config"]
+    },
+    {
+      "matchDepNames": ["marcusrbrown/renovate-config"],
+      "allowedVersions": ">=1.18.2"
     }
   ],
   "customManagers": [
