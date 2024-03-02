@@ -95,12 +95,6 @@ jobs:
         run: |
           # The semantic-release config creates outputs to indicate whether a new release was published and if so, which version.
           pnpm exec semantic-release --dry-run ${{ env.DRY_RUN }} --ci ${{ env.DRY_RUN != 'true' }}
-
-          # Create a release preview for pull requests
-          # Use dry run workaround: https://github.com/semantic-release/semantic-release/issues/1890#issuecomment-974512960
-          if [ "${{ github.event_name }}" == "pull_request" ]; then
-            unset GITHUB_ACTIONS && pnpm dlx semantic-release-github-pr --debug
-          fi
         shell: 'bash -Eeuxo pipefail {0}'
 
       - name: Push Release Branch To Major Branch
