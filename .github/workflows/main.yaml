@@ -99,7 +99,7 @@ jobs:
           # Create a release preview for pull requests
           # Use dry run workaround: https://github.com/semantic-release/semantic-release/issues/1890#issuecomment-974512960
           if [ "${{ github.event_name }}" == "pull_request" ]; then
-            unset GITHUB_ACTIONS && pnpm dlx semantic-release-github-pr --debug
+            unset GITHUB_ACTIONS && pnpm exec semantic-release-github-pr --debug
           fi
         shell: 'bash -Eeuxo pipefail {0}'
 
