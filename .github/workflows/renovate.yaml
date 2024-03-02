@@ -69,7 +69,7 @@ jobs:
         env:
           dry_run: ${{ github.event_name == 'push' && github.ref_name != 'main' }}
         if: github.event_name != 'push' || steps.filter.outputs.changes == 'true'
-        uses: bfra-me/renovate-action@775c6c9a7343da88400146b5cb4288c961075e96 # v3.9.1
+        uses: bfra-me/renovate-action@7251c0da847be016166f69444a33091cb9b6bab0 # v3.10.0
         with:
           branch: ${{ env.dry_run == 'true' && github.ref_name || '' }}
           cache: true
