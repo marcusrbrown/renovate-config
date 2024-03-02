@@ -11,6 +11,11 @@ name: Renovate
     branches: ['**']
   workflow_dispatch:
     inputs:
+      log-level:
+        description: Log level for Renovate
+        required: false
+        type: string
+        default: 'debug'
       print_config:
         description: Log the fully-resolved Renovate config for each repository, plus fully-resolved presets.
         required: false
@@ -18,8 +23,8 @@ name: Renovate
         default: false
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
-  cancel-in-progress: ${{ github.ref_name != 'main' || github.event_name != 'push'}}
+  group: ${{ github.workflow }}-${{ github.run_number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -62,16 +67,15 @@ jobs:
               - 'personal.json'
       - name: Renovate
         env:
-          cache: >-
-            ${{ !contains('["issues", "pull_request"]', github.event_name) && github.ref == 'refs/heads/main' || startsWith(github.ref_name, 'renovate/') }}
           dry_run: ${{ github.event_name == 'push' && github.ref_name != 'main' }}
         if: github.event_name != 'push' || steps.filter.outputs.changes == 'true'
         uses: bfra-me/renovate-action@d88a7dbd511b91b7533ab21dde6d85f0abf2026c # v3.9.0
         with:
           branch: ${{ env.dry_run == 'true' && github.ref_name || '' }}
-          cache: ${{ env.cache }}
+          cache: true
           dry_run: ${{ env.dry_run }}
-          print_config: ${{ inputs.print_config }}
+          log_level: ${{ inputs.log-level || 'debug' }}
+          print_config: ${{ inputs.print_config || github.event_name == 'push' }}
           renovate_app_id: ${{ secrets.APPLICATION_ID }}
           renovate_app_pem: ${{ secrets.APPLICATION_PRIVATE_KEY }}
           renovate_app_slug: 'mrbro-bot'
