@@ -5,13 +5,14 @@
     "github>bfra-me/renovate-config",
     "github>bfra-me/renovate-config:internal.json5",
     ":assignAndReview(marcusrbrown)",
-    ":prConcurrentLimitNone",
+    ":disableRateLimiting",
     ":pinAllExceptPeerDependencies"
   ],
   "suppressNotifications": ["prIgnoreNotification"],
   "schedule": ["at any time"],
   "packageRules": [
     {
+      "dsecription": "Set the commit message topic for Renovate config presets.",
       "matchDepNames": ["marcusrbrown/renovate-config"],
       "commitMessageTopic": "{{{depName}}} preset"
     },
@@ -26,13 +27,15 @@
     {
       "description": "Require recent versions of my Renovate config presets.",
       "matchPackageNames": ["marcusrbrown/renovate-config"],
-      "allowedVersions": ">=v1.18.3"
+      "allowedVersions": ">=v2.0.0"
     },
     {
       "description": "Do not pin digests for internal actions.",
       "matchDepTypes": ["actions"],
-      "matchPackagePatterns": ["^bfra-me\\/", "^marcusrbrown\\/"],
-      "pinDigests": false
+      "matchPackagePatterns": ["^bfra-me\\/", "^marcusrbrown\\/", "^pro-actions\\/"],
+      "pinDigests": false,
+      "rangeStrategy": "replace",
+      "updatePinnedDependencies": false
     },
     {
       "description": "Enable platform automerge for selected repositories.",
