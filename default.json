@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": ["Use the default config preset for all @marcusrbrown repositories."],
+  "description": "Use the default config preset for all @marcusrbrown repositories.",
   "extends": [
     "github>bfra-me/renovate-config",
     "github>bfra-me/renovate-config:internal.json5",
@@ -12,15 +12,15 @@
   "schedule": ["at any time"],
   "packageRules": [
     {
-      "commitMessageTopic": "{{{depName}}} preset",
-      "matchDepNames": ["marcusrbrown/renovate-config"]
+      "matchDepNames": ["marcusrbrown/renovate-config"],
+      "commitMessageTopic": "{{{depName}}} preset"
     },
     {
       "description": "Automerge my project dependencies without a minimum release age.",
-      "automergeType": "branch",
       "matchDepPatterns": ["^bfra-me\\/", "^marcusrbrown\\/"],
       "matchPackagePatterns": ["^@bfra\\.me\\/", "^@marcusrbrown\\/"],
       "matchSourceUrlPrefixes": ["https://github.com/bfra-me", "https://github.com/marcusrbrown"],
+      "automergeType": "branch",
       "minimumReleaseAge": null
     },
     {
@@ -30,8 +30,8 @@
     },
     {
       "description": "Do not pin digests for internal actions.",
-      "matchPackagePatterns": ["^bfra-me\\/", "^marcusrbrown\\/"],
       "matchDepTypes": ["actions"],
+      "matchPackagePatterns": ["^bfra-me\\/", "^marcusrbrown\\/"],
       "pinDigests": false
     },
     {
