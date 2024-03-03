@@ -26,7 +26,7 @@
     {
       "description": "Require recent versions of my Renovate config presets.",
       "matchPackageNames": ["marcusrbrown/renovate-config"],
-      "allowedVersions": ">=1.18.1"
+      "allowedVersions": ">=v1.18.3"
     },
     {
       "description": "Do not pin digests for internal actions.",

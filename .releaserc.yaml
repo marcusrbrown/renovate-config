@@ -11,6 +11,8 @@ plugins:
     - releasedLabels: false
       successComment: false
 
+  - 'semantic-release-export-data'
+
 analyzeCommits:
   releaseRules:
     - type: build

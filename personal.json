@@ -1,0 +1,4 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "[DEPRECATED] Include @marcusrbrown's personal config presets."
+}

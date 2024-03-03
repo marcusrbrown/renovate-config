@@ -11,6 +11,11 @@ name: Renovate
     branches: ['**']
   workflow_dispatch:
     inputs:
+      log-level:
+        description: Log level for Renovate
+        required: false
+        type: string
+        default: 'debug'
       print_config:
         description: Log the fully-resolved Renovate config for each repository, plus fully-resolved presets.
         required: false
@@ -18,8 +23,8 @@ name: Renovate
         default: false
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
-  cancel-in-progress: ${{ github.ref_name != 'main' || github.event_name != 'push'}}
+  group: ${{ github.workflow }}-${{ github.run_number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -50,7 +55,7 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
       - id: filter
         if: github.event_name == 'push'
-        uses: dorny/paths-filter@ebc4d7e9ebcb0b1eb21480bb8f43113e996ac77a # v3.0.1
+        uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3.0.2
         with:
           filters: |
             changes:
@@ -62,16 +67,15 @@ jobs:
               - 'personal.json'
       - name: Renovate
         env:
-          cache: >-
-            ${{ !contains('["issues", "pull_request"]', github.event_name) && github.ref == 'refs/heads/main' || startsWith(github.ref_name, 'renovate/') }}
           dry_run: ${{ github.event_name == 'push' && github.ref_name != 'main' }}
         if: github.event_name != 'push' || steps.filter.outputs.changes == 'true'
-        uses: bfra-me/renovate-action@2d3fbee93d2a090b183b2b432999b2262a3d4d4e # v3.1.4
+        uses: bfra-me/renovate-action@4a16f67df992d0f1a83f3b45d193d755f59d453e # v3.11.3
         with:
           branch: ${{ env.dry_run == 'true' && github.ref_name || '' }}
-          cache: ${{ env.cache }}
+          cache: true
           dry_run: ${{ env.dry_run }}
-          print_config: ${{ inputs.print_config }}
+          log_level: ${{ inputs.log-level || 'debug' }}
+          print_config: ${{ inputs.print_config || github.event_name == 'push' }}
           renovate_app_id: ${{ secrets.APPLICATION_ID }}
           renovate_app_pem: ${{ secrets.APPLICATION_PRIVATE_KEY }}
           renovate_app_slug: 'mrbro-bot'
