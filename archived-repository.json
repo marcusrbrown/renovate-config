@@ -6,6 +6,7 @@
   "dependencyDashboardAutoclose": true,
   "dependencyDashboardHeader": "This issue belongs to a repository that is using the [archived-repository](https://github.com/marcusrbrown/renovate-config/blob/main/archived-repository.json) Renovate config preset and should be closed.",
   "dependencyDashboardLabels": ["archived-repository"],
+  "dependencyDashboardTitle": "Renovate Dashboard",
   "enabledManagers": ["npm"],
   "includeForks": true,
   "ignorePrAuthor": true,
