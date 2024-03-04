@@ -30,6 +30,13 @@
       "allowedVersions": ">=v2.0.1"
     },
     {
+      "description": "Allow floating versions for my Renovate config presets.",
+      "matchDepNames": ["marcusrbrown/renovate-config"],
+      "pinDigests": false,
+      "rangeStrategy": "replace",
+      "updatePinnedDependencies": false
+    },
+    {
       "description": "Do not pin digests for internal actions.",
       "matchDepTypes": ["actions"],
       "matchPackagePatterns": ["^bfra-me\\/", "^marcusrbrown\\/", "^pro-actions\\/"],
