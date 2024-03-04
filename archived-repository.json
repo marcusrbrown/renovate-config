@@ -1,13 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": ["Configure Renovate for an archived repository."],
-  "extends": [
-    ":automergeDisabled",
-    ":disablePrControls",
-    ":disableRateLimiting",
-    ":disableVulnerabilityAlerts",
-    ":updateNotScheduled"
-  ],
+  "description": "Configure Renovate for an archived repository.",
+  "automerge": false,
   "dependencyDashboardApproval": false,
   "dependencyDashboardAutoclose": true,
   "dependencyDashboardHeader": "This issue belongs to a repository that is using the [archived-repository](https://github.com/marcusrbrown/renovate-config/blob/main/archived-repository.json) Renovate config preset and should be closed.",
@@ -26,7 +20,14 @@
       "matchManagers": ["npm"]
     }
   ],
+  "prBodyTemplate": "{{{header}}}{{{table}}}{{{notes}}}{{{changelogs}}}{{{configDescription}}}{{{footer}}}",
+  "prConcurrentLimit": 0,
   "prHeader": "This PR belongs to a repository that is using the [archived-repository](https://github.com/marcusrbrown/renovate-config/blob/main/archived-repository.json) Renovate config preset and should be closed.",
+  "prHourlyLimit": 0,
   "rebaseWhen": "never",
-  "recreateClosed": false
+  "recreateClosed": false,
+  "updateNotScheduled": true,
+  "vulnerabilityAlerts": {
+    "enabled": false
+  }
 }

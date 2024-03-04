@@ -1,15 +1,62 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": ["Use the default config preset for all @marcusrbrown repositories"],
-  "extends": ["github>bfra-me/renovate-config", "github>bfra-me/renovate-config:internal.json5"],
+  "description": "Use the default config preset for all @marcusrbrown repositories.",
+  "extends": [
+    "github>bfra-me/renovate-config",
+    "github>bfra-me/renovate-config:internal.json5",
+    ":assignAndReview(marcusrbrown)",
+    ":disableRateLimiting",
+    ":pinOnlyDevDependencies"
+  ],
+  "suppressNotifications": ["prIgnoreNotification"],
+  "schedule": ["at any time"],
   "packageRules": [
     {
-      "commitMessageTopic": "{{{depName}}} preset",
-      "matchDepNames": ["marcusrbrown/renovate-config"]
+      "dsecription": "Set the commit message topic for Renovate config presets.",
+      "matchDepNames": ["marcusrbrown/renovate-config"],
+      "commitMessageTopic": "{{{depName}}} preset"
     },
     {
-      "matchDepNames": ["marcusrbrown/renovate-config"],
-      "allowedVersions": ">=1.18.2"
+      "description": "Automerge my project dependencies without a minimum release age.",
+      "matchDepPatterns": ["^bfra-me\\/", "^marcusrbrown\\/"],
+      "matchPackagePatterns": ["^@bfra\\.me\\/", "^@marcusrbrown\\/"],
+      "matchSourceUrlPrefixes": ["https://github.com/bfra-me", "https://github.com/marcusrbrown"],
+      "automergeType": "branch",
+      "minimumReleaseAge": null
+    },
+    {
+      "description": "Require recent versions of my Renovate config presets.",
+      "matchPackageNames": ["marcusrbrown/renovate-config"],
+      "allowedVersions": ">=v2.0.0"
+    },
+    {
+      "description": "Do not pin digests for internal actions.",
+      "matchDepTypes": ["actions"],
+      "matchPackagePatterns": ["^bfra-me\\/", "^marcusrbrown\\/", "^pro-actions\\/"],
+      "pinDigests": false,
+      "rangeStrategy": "replace",
+      "updatePinnedDependencies": false
+    },
+    {
+      "description": "Enable platform automerge for selected repositories.",
+      "matchRepositories": [
+        "**/.github",
+        "**/containers",
+        "**/copiloting",
+        "**/esphome-life",
+        "**/fs-extra-bin",
+        "**/gala-chain-code",
+        "**/gh-app",
+        "**/gh-extensions-manifest",
+        "**/gpt",
+        "**/ha-config",
+        "**/marcusrbrown",
+        "**/renovate-config",
+        "**/sparkle",
+        "**/tokentoilet",
+        "**/vscode-extension"
+      ],
+      "platformAutomerge": true
     }
   ],
   "customManagers": [
