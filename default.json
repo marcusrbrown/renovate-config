@@ -12,9 +12,12 @@
   "schedule": ["at any time"],
   "packageRules": [
     {
-      "dsecription": "Append 'preset' to the commit message topic for Renovate config presets.",
+      "description": "Allow floating versions for my Renovate config presets.",
       "matchDepNames": ["marcusrbrown/renovate-config"],
-      "commitMessageTopic": "{{{depName}}} preset"
+      "commitMessageTopic": "{{{depName}}} preset",
+      "pinDigests": false,
+      "rangeStrategy": "replace",
+      "updatePinnedDependencies": false
     },
     {
       "description": "Automerge my project dependencies without a minimum release age.",
@@ -28,13 +31,6 @@
       "description": "Require recent versions of my Renovate config presets.",
       "matchPackageNames": ["marcusrbrown/renovate-config"],
       "allowedVersions": ">=v2.0.1"
-    },
-    {
-      "description": "Allow floating versions for my Renovate config presets.",
-      "matchDepNames": ["marcusrbrown/renovate-config"],
-      "pinDigests": false,
-      "rangeStrategy": "replace",
-      "updatePinnedDependencies": false
     },
     {
       "description": "Do not pin digests for internal actions.",
