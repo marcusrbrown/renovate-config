@@ -2,11 +2,11 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Use the default config preset for all @marcusrbrown repositories.",
   "extends": [
+    "github>bfra-me/renovate-config",
+    "github>bfra-me/renovate-config:internal.json5",
     ":assignAndReview(marcusrbrown)",
     ":disableRateLimiting",
-    ":pinOnlyDevDependencies",
-    "github>bfra-me/renovate-config",
-    "github>bfra-me/renovate-config:internal.json5"
+    ":pinOnlyDevDependencies"
   ],
   "suppressNotifications": ["prIgnoreNotification"],
   "schedule": ["at any time"],
@@ -30,7 +30,7 @@
     {
       "description": "Require recent versions of my Renovate config presets.",
       "matchPackageNames": ["marcusrbrown/renovate-config"],
-      "allowedVersions": ">=v2.0.1"
+      "allowedVersions": ">=v2.1.3"
     },
     {
       "description": "Do not pin digests for internal actions.",
