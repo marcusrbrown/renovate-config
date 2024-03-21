@@ -12,6 +12,7 @@
         'typescript',
       ],
       matchPackagePrefixes: ['@semantic-release/'],
+      automergeType: 'pr',
       semanticCommitType: 'build',
     },
   ],
