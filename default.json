@@ -6,7 +6,7 @@
     "github>bfra-me/renovate-config:internal.json5",
     ":assignAndReview(marcusrbrown)",
     ":disableRateLimiting",
-    ":pinOnlyDevDependencies"
+    ":preserveSemverRanges"
   ],
   "suppressNotifications": ["prIgnoreNotification"],
   "schedule": ["at any time"],
