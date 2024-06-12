@@ -26,7 +26,7 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
       - name: Setup pnpm
         uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
@@ -58,7 +58,7 @@ jobs:
           application_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY }}
           permissions: 'contents:write, issues:write, pull_requests:write, workflows:write'
 
-      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           ref: ${{ github.head_ref }}
           token: ${{ steps.get-workflow-app-token.outputs.token }}
