@@ -27,7 +27,7 @@
     "conventional-changelog-conventionalcommits": "8.0.0",
     "markdownlint": "0.34.0",
     "prettier": "3.3.3",
-    "semantic-release": "24.0.0",
+    "semantic-release": "24.1.0",
     "semantic-release-export-data": "1.1.0"
   }
 }
