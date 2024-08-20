@@ -4,7 +4,6 @@
   extends: ['github>marcusrbrown/renovate-config'],
   packageRules: [
     {
-      matchDepNames: ['bfra-me/renovate-config'],
       matchPackageNames: [
         '@vercel/ncc',
         'conventional-changelog-conventionalcommits',
@@ -15,14 +14,17 @@
       automergeType: 'pr',
       semanticCommitType: 'build',
     },
+    {
+      description: 'Keep the bfra-me/renovate-action action pinned.',
+      matchPackageNames: ['bfra-me/renovate-action'],
+      rangeStrategy: 'pin',
+      updatePinnedDependencies: false,
+    },
   ],
   postUpgradeTasks: {
-    commands: [
-      'npm install -g pnpm@9.7.0',
-      'pnpm install --frozen-lockfile --ignore-scripts',
-      'git checkout -- .npmrc',
-      'pnpm run format',
-    ],
+    commands: ['pnpm run bootstrap'],
     executionMode: 'branch',
   },
+  prCreation: 'immediate',
+  rebaseWhen: 'behind-base-branch',
 }
