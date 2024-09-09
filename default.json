@@ -12,6 +12,13 @@
   "schedule": ["at any time"],
   "packageRules": [
     {
+      "description": "Group major updates of `semantic-release` and `conventional-changelog-conventionalcommits`.",
+      "matchPackageNames": ["conventional-changelog-conventionalcommits", "semantic-release"],
+      "matchUpdateTypes": ["major"],
+      "groupName": "semantic-release and conventionalcommits",
+      "semanticCommitType": "feat"
+    },
+    {
       "description": "Allow floating versions for my Renovate config presets.",
       "matchDepNames": ["marcusrbrown/renovate-config"],
       "commitMessageTopic": "{{{depName}}} preset",
@@ -43,9 +50,10 @@
     {
       "description": "Enable platform automerge for selected repositories.",
       "matchRepositories": [
+        "**/.dotfiles",
         "**/.github",
+        "**/ai-chatbot",
         "**/containers",
-        "**/copiloting",
         "**/esphome.life",
         "**/gh-app",
         "**/gh-extensions-manifest",
