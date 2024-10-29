@@ -44,12 +44,12 @@ jobs:
     with:
       log_level: ${{ inputs.log-level || 'debug' }}
       path_filters: >-
-        "[
+        [
           '.github/workflows/renovate.yaml',
           '.github/renovate.json5',
           'archived-repository.json',
           'default.json',
           'onboarding.json',
           'personal.json',
-        ]"
+        ]
       print_config: ${{ inputs.print-config || false }}
