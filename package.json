@@ -7,7 +7,7 @@
   "main": "default.json",
   "type": "module",
   "scripts": {
-    "bootstrap": "pnpm install && pnpm run format",
+    "bootstrap": "pnpm install",
     "check-format": "prettier --check .",
     "format": "prettier --write ."
   },
