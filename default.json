@@ -2,8 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Use the default config preset for all @marcusrbrown repositories.",
   "extends": [
-    "github>bfra-me/renovate-config",
-    "github>bfra-me/renovate-config:internal.json5",
+    "github>bfra-me/renovate-config#v3",
+    "github>bfra-me/renovate-config:internal.json5#v3",
     ":assignAndReview(marcusrbrown)",
     ":disableRateLimiting",
     ":preserveSemverRanges",
@@ -27,18 +27,9 @@
       "prBodyColumns": ["Package", "Change", "Age", "Confidence", "OpenSSF", "GitHub"]
     },
     {
-      "description": "Enable SemVer digest pinning of @bfra-me GitHub actions, reusable workflows, and Renovate config presets.",
+      "description": "Enable pinning of @bfra-me GitHub actions, reusable workflows, and Renovate config presets.",
       "matchPackageNames": ["@bfra.me/{/,}**", "bfra-me/{/,}**", "marcusrbrown/{/,}**", "pro-actions/{/,}**"],
-      "pinDigests": false,
-      "rangeStrategy": "pin",
-      "updatePinnedDependencies": false
-    },
-    {
-      "description": "Enable SemVer digest pinning of @bfra-me GitHub actions, reusable workflows, and Renovate config presets.",
-      "matchPackageNames": ["@bfra.me/{/,}**", "bfra-me/{/,}**", "marcusrbrown/{/,}**", "pro-actions/{/,}**"],
-      "matchUpdateTypes": ["major"],
-      "pinDigests": false,
-      "updatePinnedDependencies": true
+      "rangeStrategy": "pin"
     },
     {
       "description": "Group major updates of `semantic-release` and `conventional-changelog-conventionalcommits`.",
@@ -82,6 +73,7 @@
         "**/sparkle",
         "**/tokentoilet"
       ],
+      "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest"],
       "platformAutomerge": true
     }
   ],
