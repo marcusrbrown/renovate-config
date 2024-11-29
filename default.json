@@ -8,7 +8,8 @@
     ":disableRateLimiting",
     ":preserveSemverRanges",
     "security:openssf-scorecard",
-    "npm:unpublishSafe"
+    "npm:unpublishSafe",
+    "helpers:pinGitHubActionDigestsToSemver"
   ],
   "suppressNotifications": ["prIgnoreNotification"],
   "schedule": ["at any time"],
@@ -25,11 +26,6 @@
       "matchUpdateTypes": ["pin", "patch", "minor", "major"],
       "matchSourceUrls": ["https://github.com/**"],
       "prBodyColumns": ["Package", "Change", "Age", "Confidence", "OpenSSF", "GitHub"]
-    },
-    {
-      "description": "Enable pinning of @bfra-me GitHub actions, reusable workflows, and Renovate config presets.",
-      "matchPackageNames": ["@bfra.me/{/,}**", "bfra-me/{/,}**", "marcusrbrown/{/,}**", "pro-actions/{/,}**"],
-      "rangeStrategy": "pin"
     },
     {
       "description": "Group major updates of `semantic-release` and `conventional-changelog-conventionalcommits`.",
