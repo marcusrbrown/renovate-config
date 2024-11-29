@@ -51,3 +51,5 @@ presetConfig:
       section: 'Reverts'
     - type: chore
       section: 'Miscellaneous Chores'
+
+tagFormat: '${version}'

@@ -9,7 +9,12 @@
   ],
   packageRules: [
     {
-      matchPackageNames: ['conventional-changelog-conventionalcommits', 'semantic-release', '@semantic-release/{/,}**'],
+      matchPackageNames: [
+        'conventional-changelog-conventionalcommits',
+        'semantic-release',
+        '@semantic-release/{/,}**',
+        'semantic-release-export-data',
+      ],
       semanticCommitType: 'build',
     },
   ],
