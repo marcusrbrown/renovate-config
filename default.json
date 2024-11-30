@@ -85,12 +85,11 @@
   "customManagers": [
     {
       "customType": "regex",
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^(?<version>v?\\d+(\\.\\d+\\.\\d+)?)$",
       "fileMatch": ["^\\.git(hu|la)b\\/renovate\\.json5?$", "^\\.renovaterc(\\.json5?)?$", "^renovate\\.json5?$"],
-      "matchStrings": [
-        "[\"']github>(?<depName>.+\\/renovate-config(?:(?::|\\/\\/)(?<path>.+?))?)#(?<currentValue>.+?)[\"']"
-      ],
+      "matchStrings": ["[\"']github>(?<depName>.+)(?:(?::|\\/\\/)(?<path>.+?))?#(?<currentValue>.+?)[\"']"],
+      "packageNameTemplate": "{{{depName}}}/{{{path}}}",
       "versioningTemplate": "regex:^v?(?<major>\\d+)(\\.(?<minor>\\d+)(\\.(?<patch>\\d+)))?$"
     }
   ]
