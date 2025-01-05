@@ -86,6 +86,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depTypeTemplate": "config",
       "extractVersionTemplate": "^(?<version>v?\\d+(\\.\\d+\\.\\d+)?)$",
       "fileMatch": ["^\\.git(hu|la)b\\/renovate\\.json5?$", "^\\.renovaterc(\\.json5?)?$", "^renovate\\.json5?$"],
       "matchStrings": ["[\"']github>(?<depName>.+)(?:(?::|\\/\\/)(?<path>.+?))?#(?<currentValue>.+?)[\"']"],
