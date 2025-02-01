@@ -1,0 +1,196 @@
+# Cursor AI Development Rules
+
+## Project Context
+- **Type**: Renovate Configuration Preset Repository
+- **Package Manager**: pnpm@9.15.4
+- **Main Output**: Shareable Renovate configuration presets
+- **License**: MIT
+- **Visibility**: Public Repository
+
+## Base Layer (Universal Constants)
+
+### 1. Quality Standards
+#### Type Safety
+- Enforce strict JSON schema validation for all Renovate configuration files
+- Validate JSON5 syntax in `.github/renovate.json5`
+- Ensure type consistency in configuration presets
+
+#### Code Style
+- Follow Prettier configuration:
+  ```yaml
+  bracketSpacing: false
+  endOfLine: lf
+  jsxSingleQuote: true
+  printWidth: 120
+  singleQuote: true
+  tabWidth: 2
+  ```
+- Special overrides for VS Code settings (4 spaces) and Markdown files
+- Maintain consistent YAML formatting across configuration files
+
+#### Documentation
+- Maintain comprehensive README.md documentation
+- Follow markdownlint-cli2 rules
+- Document all preset configurations with clear examples
+- Include usage instructions for each configuration preset
+
+#### Testing
+- Validate all Renovate configuration files against schema
+- Test preset combinations for compatibility
+- Verify configuration inheritance chains
+
+### 2. Process Standards
+#### Version Control
+- Follow Conventional Commits specification
+- Branch strategy:
+  - Main branch: `main`
+  - Protected branch rules enforced
+- Commit message format aligned with semantic-release
+
+#### Release Management
+- Automated releases via semantic-release
+- Version format: `${version}`
+- Release types:
+  - Features: New presets or major configuration changes
+  - Bug Fixes: Configuration corrections
+  - Documentation: README and preset documentation updates
+  - Build System: Package and dependency updates
+  - Chores: Maintenance tasks
+
+#### CI/CD Integration
+- GitHub Actions workflow integration
+- Automated validation and testing
+- Release automation with semantic-release
+- Renovate bot self-hosting configuration
+
+#### Dependency Management
+- Use pnpm for package management
+- Maintain strict lockfile (`pnpm-lock.yaml`)
+- Renovate bot configuration for automated updates
+- Dependency update strategy defined in preset configurations
+
+## Flexible Layer (Project-Specific)
+
+### 1. Architecture Rules
+```yaml
+architecture:
+  type: configuration-preset
+  patterns:
+    - modular-presets
+    - inheritance-based
+    - composable-configs
+  boundaries:
+    - preset-isolation
+    - clear-dependencies
+    - versioned-configs
+  constraints:
+    - renovate-schema-compliance
+    - backward-compatibility
+    - semantic-versioning
+```
+
+### 2. Technology Rules
+```yaml
+technology:
+  core:
+    - json
+    - json5
+    - yaml
+  tooling:
+    packageManager: pnpm
+    formatting: prettier
+    linting:
+      - markdownlint
+      - json-schema
+    release: semantic-release
+  validation:
+    - renovate-config-validator
+    - json-schema-validator
+    - yaml-validator
+```
+
+## Validation Strategies
+
+### 1. Configuration Validation
+- Schema validation for all JSON/JSON5 files
+- YAML syntax verification
+- Renovate preset validation
+- Dependency version compatibility checks
+
+### 2. Quality Gates
+```yaml
+quality_gates:
+  - stage: pre-commit
+    checks:
+      - prettier-format
+      - markdown-lint
+      - json-schema
+  - stage: ci
+    checks:
+      - renovate-validate
+      - dependency-check
+      - security-audit
+  - stage: release
+    checks:
+      - semantic-version
+      - changelog-generation
+      - documentation-update
+```
+
+## AI Assistant Guidelines
+
+### 1. Code Generation
+- Generate valid JSON/JSON5/YAML configurations
+- Follow project's formatting rules
+- Include comprehensive comments
+- Maintain preset inheritance patterns
+
+### 2. Code Review
+- Verify schema compliance
+- Check formatting consistency
+- Validate documentation updates
+- Ensure semantic versioning compliance
+
+### 3. Problem Resolution
+- Prioritize configuration validation issues
+- Address dependency conflicts
+- Resolve preset inheritance problems
+- Fix documentation inconsistencies
+
+### 4. Development Workflow
+- Respect conventional commits
+- Follow semantic versioning
+- Update documentation alongside changes
+- Maintain changelog entries
+
+## Adaptation Rules
+
+### 1. Configuration Updates
+```yaml
+adaptation_rules:
+  config_updates:
+    - scope: preset_modification
+      requirements:
+        - maintain_compatibility
+        - update_documentation
+        - validate_schema
+    - scope: dependency_updates
+      requirements:
+        - verify_compatibility
+        - update_lockfile
+        - test_presets
+```
+
+### 2. Documentation Changes
+```yaml
+documentation_rules:
+  updates:
+    - readme_sync: true
+    - preset_docs: required
+    - examples: required
+    - changelog: automated
+  format:
+    - follow_prettier
+    - pass_markdownlint
+    - maintain_structure
+```
