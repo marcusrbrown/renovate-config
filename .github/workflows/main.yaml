@@ -39,7 +39,7 @@ jobs:
           node-version-file: '.node-version'
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile --ignore-scripts
+        run: pnpm bootstrap
 
       - name: Check formatting
         run: pnpm run check-format
