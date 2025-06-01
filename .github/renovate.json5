@@ -3,7 +3,7 @@
   description: ['Use the config preset for the @marcusrbrown/renovate-config repository'],
   automergeType: 'pr',
   extends: [
-    'github>marcusrbrown/renovate-config',
+    'local>marcusrbrown/renovate-config',
     'github>sanity-io/renovate-config:semantic-commit-type',
     'npm:unpublishSafe',
   ],
