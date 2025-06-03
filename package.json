@@ -1,34 +1,34 @@
 {
   "name": "@marcusrbrown/renovate-config",
-  "description": "Shareable Renovate configuration presets for my personal GitHub repositories.",
   "version": "0.0.0-development",
   "private": true,
-  "packageManager": "pnpm@10.11.0",
-  "main": "default.json",
-  "type": "module",
-  "scripts": {
-    "bootstrap": "pnpm install --prefer-offline --loglevel warn",
-    "check-format": "prettier --check .",
-    "format": "prettier --write ."
+  "description": "Shareable Renovate configuration presets for my personal GitHub repositories.",
+  "keywords": [
+    "renovate-config"
+  ],
+  "homepage": "https://github.com/marcusrbrown/renovate-config#readme",
+  "bugs": {
+    "url": "https://github.com/marcusrbrown/renovate-config/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/marcusrbrown/renovate-config.git"
   },
-  "keywords": [
-    "renovate-config"
-  ],
-  "author": "Marcus R. Brown <contact@marcusrbrown.com> (https://marcusrbrown.com/)",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/marcusrbrown/renovate-config/issues"
+  "author": "Marcus R. Brown <contact@marcusrbrown.com> (https://marcusrbrown.com/)",
+  "type": "module",
+  "main": "default.json",
+  "scripts": {
+    "bootstrap": "pnpm install --prefer-offline --loglevel warn",
+    "check-format": "pnpx sort-package-json --check && prettier --check .",
+    "format": "pnpx sort-package-json && prettier --write ."
   },
-  "homepage": "https://github.com/marcusrbrown/renovate-config#readme",
   "devDependencies": {
     "conventional-changelog-conventionalcommits": "9.0.0",
     "markdownlint": "0.38.0",
     "prettier": "3.5.3",
     "semantic-release": "24.2.5",
     "semantic-release-export-data": "1.1.0"
-  }
+  },
+  "packageManager": "pnpm@10.11.0"
 }
