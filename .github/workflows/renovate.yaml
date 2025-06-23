@@ -31,20 +31,15 @@ permissions:
 
 jobs:
   renovate:
-    if: >-
-      (github.event.action == 'edited' && !contains(github.actor, '[bot]')) ||
-      (
-        github.event_name != 'workflow_run' ||
-        github.event.workflow_run.conclusion == 'success'
-      )
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     name: Renovate
     secrets:
       APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
       APPLICATION_PRIVATE_KEY: ${{ secrets.APPLICATION_PRIVATE_KEY }}
     uses: bfra-me/.github/.github/workflows/renovate.yaml@1c4d83598115c2fee5f97913f7a9b62bb1421b63 # v3.0.5
     with:
-      log_level: ${{ inputs.log-level || 'debug' }}
-      path_filters: >-
+      log-level: ${{ inputs.log-level || 'debug' }}
+      path-filters: >-
         [
           '.github/workflows/renovate.yaml',
           '.github/renovate.json5',
@@ -53,4 +48,4 @@ jobs:
           'onboarding.json',
           'personal.json',
         ]
-      print_config: ${{ inputs.print-config || false }}
+      print-config: ${{ inputs.print-config || false }}
