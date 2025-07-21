@@ -19,6 +19,9 @@ analyzeCommits:
   releaseRules:
     - type: build
       release: patch
+    - type: ci
+      release: minor
+      scope: renovate
     - type: docs
       release: patch
       scope: readme.md
