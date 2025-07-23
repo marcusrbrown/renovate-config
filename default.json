@@ -2,8 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Use the default config preset for all @marcusrbrown repositories.",
   "extends": [
-    "github>bfra-me/renovate-config#v3",
-    "github>bfra-me/renovate-config:internal.json5#v3",
+    "github>bfra-me/renovate-config#v4",
     ":assignAndReview(marcusrbrown)",
     ":disableRateLimiting",
     ":preserveSemverRanges",
@@ -13,21 +12,7 @@
   ],
   "suppressNotifications": ["prIgnoreNotification"],
   "schedule": ["at any time"],
-  "osvVulnerabilityAlerts": true,
   "packageRules": [
-    {
-      "description": "Show Merge Confidence, OpenSSF Scorecard, and GitHub Search badges for Renovate dependencies.",
-      "matchDatasources": ["go", "maven", "npm", "nuget", "packagist", "pypi", "rubygems"],
-      "matchUpdateTypes": ["pin", "patch", "minor", "major"],
-      "prBodyColumns": ["Package", "Change", "Age", "Confidence", "GitHub"]
-    },
-    {
-      "description": "Show Merge Confidence, OpenSSF Scorecard, and GitHub Search badges for Renovate dependencies.",
-      "matchDatasources": ["go", "maven", "npm", "nuget", "packagist", "pypi", "rubygems"],
-      "matchUpdateTypes": ["pin", "patch", "minor", "major"],
-      "matchSourceUrls": ["https://github.com/**"],
-      "prBodyColumns": ["Package", "Change", "Age", "Confidence", "OpenSSF", "GitHub"]
-    },
     {
       "description": "Group major updates of `semantic-release` and `conventional-changelog-conventionalcommits`.",
       "matchPackageNames": ["conventional-changelog-conventionalcommits", "semantic-release"],
@@ -63,8 +48,5 @@
       "matchPackageNames": ["marcusrbrown/renovate-config"],
       "allowedVersions": ">=4.0.0"
     }
-  ],
-  "prBodyDefinitions": {
-    "GitHub": "[![GitHub Code Search for \"{{{depName}}}\"](https://img.shields.io/badge/code_search-{{{replace \"-\" \"--\" depName}}}-2671E5.svg?logo=github)](https://github.com/search?q=repo:{{{encodeURIComponent repository}}}+NOT+path:/package(-lock)%3F%5C.json%7Cyarn%5C.lock%7Cpnpm-lock%5C.yaml/+{{{encodeURIComponent depName}}})"
-  }
+  ]
 }
