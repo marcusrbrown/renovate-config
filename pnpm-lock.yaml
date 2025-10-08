@@ -21,8 +21,8 @@ importers:
         specifier: 24.2.9
         version: 24.2.9
       semantic-release-export-data:
-        specifier: 1.1.1
-        version: 1.1.1(semantic-release@24.2.9)
+        specifier: 1.2.0
+        version: 1.2.0(semantic-release@24.2.9)
 
 packages:
 
@@ -1028,10 +1028,10 @@ packages:
   safe-buffer@5.1.2:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}
 
-  semantic-release-export-data@1.1.1:
-    resolution: {integrity: sha512-cjhc6g7Vl4tRRD6eA593EyMiQaOvazsziabdzPqsf0OAKoIQSL2eynS2jaJhbdxiu4msZreZ+XcU5FU9FAZbeA==}
+  semantic-release-export-data@1.2.0:
+    resolution: {integrity: sha512-/9+yQWFieiN0KB7YA0TTCXHml7d2tlNLkprLjUOKf8XDQlJ6ZK9gkw0dJJ/8/kBzeuUPq8aZR2n0rYmuYCz7Xg==}
     peerDependencies:
-      semantic-release: '>=18'
+      semantic-release: '>=20'
 
   semantic-release@24.2.9:
     resolution: {integrity: sha512-phCkJ6pjDi9ANdhuF5ElS10GGdAKY6R1Pvt9lT3SFhOwM4T7QZE7MLpBDbNruUx/Q3gFD92/UOFringGipRqZA==}
@@ -2296,7 +2296,7 @@ snapshots:
 
   safe-buffer@5.1.2: {}
 
-  semantic-release-export-data@1.1.1(semantic-release@24.2.9):
+  semantic-release-export-data@1.2.0(semantic-release@24.2.9):
     dependencies:
       semantic-release: 24.2.9
 
