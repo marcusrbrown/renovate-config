@@ -30,5 +30,5 @@
     "semantic-release": "25.0.2",
     "semantic-release-export-data": "1.2.0"
   },
-  "packageManager": "pnpm@10.21.0"
+  "packageManager": "pnpm@10.22.0"
 }
