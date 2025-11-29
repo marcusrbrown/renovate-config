@@ -13,6 +13,11 @@
         "renovaterc"
     ],
 
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.organizeImports": "never"
+    },
+
     // Silent the formatting rules in the IDE, but still auto fix them
     "eslint.rules.customizations": [
         {"rule": "prettier/prettier", "severity": "off", "fixable": true},
