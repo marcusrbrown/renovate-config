@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@bfra.me/eslint-config':
-        specifier: 0.43.0
-        version: 0.43.0(@typescript-eslint/eslint-plugin@8.48.0(@typescript-eslint/parser@8.48.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/utils@8.48.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint-config-prettier@10.1.8(eslint@9.39.1(jiti@2.6.1)))(eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.1(jiti@2.6.1)))(eslint@9.39.1(jiti@2.6.1))(prettier@3.6.2))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
+        specifier: 0.44.0
+        version: 0.44.0(@typescript-eslint/eslint-plugin@8.48.0(@typescript-eslint/parser@8.48.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/utils@8.48.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint-config-prettier@10.1.8(eslint@9.39.1(jiti@2.6.1)))(eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.1(jiti@2.6.1)))(eslint@9.39.1(jiti@2.6.1))(prettier@3.6.2))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       '@bfra.me/prettier-config':
         specifier: 0.16.3
         version: 0.16.3(prettier@3.6.2)
@@ -67,8 +67,8 @@ packages:
     resolution: {integrity: sha512-qSs4ifwzKJSV39ucNjsvc6WVHs6b7S03sOh2OcHF9UHfVPqWWALUsNUVzhSBiItjRZoLHx7nIarVjqKVusUZ1Q==}
     engines: {node: '>=6.9.0'}
 
-  '@bfra.me/eslint-config@0.43.0':
-    resolution: {integrity: sha512-Ci/xB/TkfMfr+Uz3OPHIg4PqtPrxIfp6eQfn8k/mlSCWH+r1kmzY5o/z3p7I+ZY4vJ+w+QJVaIg1ecW46p0Aug==}
+  '@bfra.me/eslint-config@0.44.0':
+    resolution: {integrity: sha512-hQHlIGWs8YosS044GKbdYsaLvwj+mO+TlzBNnVdEv6viRyW6T60Cm/D4+W3XOdIO6xu3GSKAIHB/YnQKRn3h3g==}
     peerDependencies:
       '@eslint-react/eslint-plugin': ^2.0.1
       '@next/eslint-plugin-next': '>=15.5.3'
@@ -1406,10 +1406,6 @@ packages:
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
-  js-yaml@4.1.0:
-    resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
-    hasBin: true
-
   js-yaml@4.1.1:
     resolution: {integrity: sha512-qQKT4zQxXl8lLwBtHMWwaTcGfFOZviOJet3Oy/xmGk2gZH677CJM9EvtfdSkgWcATZhj/55JZ0rmy3myCT5lsA==}
     hasBin: true
@@ -2543,7 +2539,7 @@ snapshots:
 
   '@babel/helper-validator-identifier@7.28.5': {}
 
-  '@bfra.me/eslint-config@0.43.0(@typescript-eslint/eslint-plugin@8.48.0(@typescript-eslint/parser@8.48.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/utils@8.48.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint-config-prettier@10.1.8(eslint@9.39.1(jiti@2.6.1)))(eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.1(jiti@2.6.1)))(eslint@9.39.1(jiti@2.6.1))(prettier@3.6.2))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)':
+  '@bfra.me/eslint-config@0.44.0(@typescript-eslint/eslint-plugin@8.48.0(@typescript-eslint/parser@8.48.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/utils@8.48.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint-config-prettier@10.1.8(eslint@9.39.1(jiti@2.6.1)))(eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.1(jiti@2.6.1)))(eslint@9.39.1(jiti@2.6.1))(prettier@3.6.2))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)':
     dependencies:
       '@eslint-community/eslint-plugin-eslint-comments': 4.5.0(eslint@9.39.1(jiti@2.6.1))
       '@eslint/markdown': 7.5.1
@@ -3292,7 +3288,7 @@ snapshots:
     dependencies:
       env-paths: 2.2.1
       import-fresh: 3.3.1
-      js-yaml: 4.1.0
+      js-yaml: 4.1.1
       parse-json: 5.2.0
     optionalDependencies:
       typescript: 5.9.3
@@ -3963,10 +3959,6 @@ snapshots:
     optional: true
 
   js-tokens@4.0.0: {}
-
-  js-yaml@4.1.0:
-    dependencies:
-      argparse: 2.0.1
 
   js-yaml@4.1.1:
     dependencies:
