@@ -20,11 +20,17 @@
   "main": "default.json",
   "scripts": {
     "bootstrap": "pnpm install --prefer-offline --loglevel warn",
-    "check-format": "pnpx sort-package-json --check && prettier --check .",
-    "format": "pnpx sort-package-json && prettier --write ."
+    "lint": "eslint",
+    "fix": "eslint --fix"
   },
+  "prettier": "@bfra.me/prettier-config/120-proof",
   "devDependencies": {
+    "@bfra.me/eslint-config": "0.43.0",
+    "@bfra.me/prettier-config": "0.16.3",
     "conventional-changelog-conventionalcommits": "9.1.0",
+    "eslint": "9.39.1",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-prettier": "5.5.4",
     "markdownlint": "0.39.0",
     "prettier": "3.6.2",
     "semantic-release": "25.0.2",

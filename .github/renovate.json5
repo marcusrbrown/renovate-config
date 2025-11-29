@@ -5,16 +5,16 @@
   packageRules: [
     {
       matchPackageNames: [
+        '@semantic-release/{/,}**',
         'conventional-changelog-conventionalcommits',
         'semantic-release',
-        '@semantic-release/{/,}**',
         'semantic-release-export-data',
       ],
       semanticCommitType: 'build',
     },
   ],
   postUpgradeTasks: {
-    commands: ['pnpm run bootstrap', 'pnpm run format'],
+    commands: ['pnpm run bootstrap', 'pnpm run fix'],
     executionMode: 'branch',
   },
 }
