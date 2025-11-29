@@ -21,7 +21,16 @@
   "scripts": {
     "bootstrap": "pnpm install --prefer-offline --loglevel warn",
     "lint": "eslint",
-    "fix": "eslint --fix"
+    "fix": "eslint --fix",
+    "prepare": "simple-git-hooks"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,json,jsx,md,toml,ts,tsx,yml,yaml}": [
+      "eslint --fix"
+    ]
   },
   "prettier": "@bfra.me/prettier-config/120-proof",
   "devDependencies": {
@@ -31,10 +40,12 @@
     "eslint": "9.39.1",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-prettier": "5.5.4",
+    "lint-staged": "16.2.7",
     "markdownlint": "0.39.0",
     "prettier": "3.6.2",
     "semantic-release": "25.0.2",
-    "semantic-release-export-data": "1.2.0"
+    "semantic-release-export-data": "1.2.0",
+    "simple-git-hooks": "2.13.1"
   },
   "packageManager": "pnpm@10.23.0"
 }
