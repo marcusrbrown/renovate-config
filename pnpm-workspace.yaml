@@ -1,2 +1,10 @@
 onlyBuiltDependencies:
   - simple-git-hooks
+
+savePrefix: ''
+
+shamefullyHoist: true
+
+shellEmulator: true
+
+strictPeerDependencies: true
