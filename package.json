@@ -42,7 +42,7 @@
     "eslint-plugin-prettier": "5.5.4",
     "lint-staged": "16.2.7",
     "markdownlint": "0.39.0",
-    "prettier": "3.7.3",
+    "prettier": "3.7.4",
     "semantic-release": "25.0.2",
     "semantic-release-export-data": "1.2.0",
     "simple-git-hooks": "2.13.1"
