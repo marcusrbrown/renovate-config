@@ -1,0 +1,96 @@
+---
+name: Fro Bot Agent
+
+on:
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+  discussion_comment:
+    types: [created]
+  issues:
+    types: [opened, edited]
+  pull_request:
+    types: [opened, synchronize, reopened]
+  schedule:
+    - cron: '0 9 * * 1' # Weekly Monday at 9 AM UTC
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: Custom prompt for the Fro Bot agent
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: >-
+    fro-bot-${{
+      github.event.issue.number ||
+      github.event.pull_request.number ||
+      github.event.discussion.number ||
+      github.run_id
+    }}
+  cancel-in-progress: false
+
+env:
+  PR_REVIEW_PROMPT: |
+    Focus your review on:
+    - Correctness and edge cases
+    - Security implications
+    - Breaking changes to public API
+    - Test coverage for new/changed behavior
+    Skip style nits — the linter handles those.
+
+  SCHEDULE_PROMPT: |
+    Perform weekly repository maintenance and create a SINGLE issue titled
+    "Weekly Maintenance Report — YYYY-MM-DD" containing:
+    - Open issues with no activity in 14+ days (list with links)
+    - Open PRs with no review activity in 7+ days (list with links)
+    - Issues labeled 'bug' without assignees (list with links)
+    - Recommended actions for each item
+    Do NOT comment on individual issues or PRs. Produce one summary issue only.
+
+jobs:
+  fro-bot:
+    name: Fro Bot Agent
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    if: >-
+      (
+        github.event.pull_request == null ||
+        !github.event.pull_request.head.repo.fork
+      ) && (
+        github.event_name == 'issues' ||
+        github.event_name == 'schedule' ||
+        github.event_name == 'workflow_dispatch' ||
+        github.event_name == 'pull_request' ||
+        (
+          (github.event_name == 'issue_comment' ||
+           github.event_name == 'pull_request_review_comment' ||
+           github.event_name == 'discussion_comment') &&
+          contains(github.event.comment.body || '', '@fro-bot') &&
+          (github.event.comment.user.login || '') != 'fro-bot' &&
+          contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association || '')
+        )
+      )
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Fro Bot
+        uses: fro-bot/agent@v0
+        env:
+          OPENCODE_PROMPT_ARTIFACT: 'true'
+          # Route event-specific prompts into the action input.
+          PROMPT: >-
+            ${{
+              (github.event_name == 'workflow_dispatch' && (github.event.inputs.prompt || ''))
+              || (github.event_name == 'schedule' && env.SCHEDULE_PROMPT)
+              || (github.event_name == 'pull_request' && env.PR_REVIEW_PROMPT)
+              || ''
+            }}
+        with:
+          github-token: ${{ secrets.FRO_BOT_PAT }}
+          auth-json: ${{ secrets.OPENCODE_AUTH_JSON }}
+          prompt: ${{ env.PROMPT }}
