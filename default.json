@@ -24,6 +24,8 @@
       "matchPackageNames": [
         "@bfra.me/{/,}**",
         "bfra-me/{/,}**",
+        "@fro.bot/{/,}**",
+        "fro-bot/{/,}**",
         "/^@?marcusrbrown/",
         "marcusrbrown/{/,}**",
         "pro-actions/{/,}**"
@@ -33,7 +35,11 @@
     },
     {
       "description": "Automerge my project dependencies without a minimum release age.",
-      "matchSourceUrlPrefixes": ["https://github.com/bfra-me", "https://github.com/marcusrbrown"],
+      "matchSourceUrlPrefixes": [
+        "https://github.com/bfra-me",
+        "https://github.com/fro-bot",
+        "https://github.com/marcusrbrown"
+      ],
       "minimumReleaseAge": null,
       "prCreation": "immediate"
     },
