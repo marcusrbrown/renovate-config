@@ -1,5 +1,5 @@
 ---
-name: Fro Bot Agent
+name: Fro Bot
 
 on:
   issue_comment:
@@ -34,6 +34,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
+  # CUSTOMIZE: Tailor these prompts to your project's conventions and tech stack.
   PR_REVIEW_PROMPT: |
     Focus your review on:
     - Correctness and edge cases
@@ -53,9 +54,14 @@ env:
 
 jobs:
   fro-bot:
-    name: Fro Bot Agent
+    name: Fro Bot
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    permissions:
+      contents: write
+      discussions: write
+      issues: write
+      pull-requests: write
     if: >-
       (
         github.event.pull_request == null ||
@@ -76,13 +82,22 @@ jobs:
       )
     steps:
       - name: Checkout repository
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+          token: >-
+            ${{
+              github.event_name == 'workflow_dispatch'
+              && secrets.GITHUB_TOKEN
+              || secrets.FRO_BOT_PAT
+            }}
+
+      # CUSTOMIZE: Add project-specific setup steps here (e.g. install deps).
 
       - name: Run Fro Bot
         uses: fro-bot/agent@v0
         env:
           OPENCODE_PROMPT_ARTIFACT: 'true'
-          # Route event-specific prompts into the action input.
           PROMPT: >-
             ${{
               (github.event_name == 'workflow_dispatch' && (github.event.inputs.prompt || ''))
@@ -91,6 +106,11 @@ jobs:
               || ''
             }}
         with:
-          github-token: ${{ secrets.FRO_BOT_PAT }}
+          github-token: >-
+            ${{
+              github.event_name == 'workflow_dispatch'
+              && secrets.GITHUB_TOKEN
+              || secrets.FRO_BOT_PAT
+            }}
           auth-json: ${{ secrets.OPENCODE_AUTH_JSON }}
           prompt: ${{ env.PROMPT }}
