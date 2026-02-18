@@ -95,7 +95,7 @@ jobs:
       # CUSTOMIZE: Add project-specific setup steps here (e.g. install deps).
 
       - name: Run Fro Bot
-        uses: fro-bot/agent@c3151f6adb2cb786ed857b94dd9a8717d775a98c # v0.26.2
+        uses: fro-bot/agent@a1afb844ab7b0a238b4e49f223ecf2b6106a3273 # v0.26.10
         env:
           OPENCODE_PROMPT_ARTIFACT: 'true'
           PROMPT: >-
