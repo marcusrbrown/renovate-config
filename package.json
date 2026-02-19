@@ -34,8 +34,8 @@
   },
   "prettier": "@bfra.me/prettier-config/120-proof",
   "devDependencies": {
-    "@bfra.me/eslint-config": "0.47.9",
-    "@bfra.me/prettier-config": "0.16.6",
+    "@bfra.me/eslint-config": "0.48.0",
+    "@bfra.me/prettier-config": "0.16.7",
     "conventional-changelog-conventionalcommits": "9.1.0",
     "eslint": "9.39.2",
     "eslint-config-prettier": "10.1.8",
