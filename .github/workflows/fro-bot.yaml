@@ -34,13 +34,13 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  # CUSTOMIZE: Tailor these prompts to your project's conventions and tech stack.
   PR_REVIEW_PROMPT: |
     Focus your review on:
-    - Correctness and edge cases
-    - Security implications
-    - Breaking changes to public API
-    - Test coverage for new/changed behavior
+    - JSON schema compliance with Renovate configuration spec
+    - Backward compatibility for consumers of these presets
+    - Correctness of package rules, grouping, and automerge logic
+    - Security implications of dependency update policies
+    - Breaking changes that affect downstream repositories
     Skip style nits — the linter handles those.
 
   SCHEDULE_PROMPT: |
@@ -56,7 +56,7 @@ jobs:
   fro-bot:
     name: Fro Bot
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     permissions:
       contents: write
       discussions: write
@@ -67,7 +67,10 @@ jobs:
         github.event.pull_request == null ||
         !github.event.pull_request.head.repo.fork
       ) && (
-        github.event_name == 'issues' ||
+        (
+          github.event_name == 'issues' &&
+          !endsWith(github.event.issue.user.login || '', '[bot]')
+        ) ||
         github.event_name == 'schedule' ||
         github.event_name == 'workflow_dispatch' ||
         github.event_name == 'pull_request' ||
@@ -85,6 +88,12 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
+          ref: >-
+            ${{
+              (github.event.issue.pull_request && format('refs/pull/{0}/head', github.event.issue.number))
+              || github.event.pull_request.head.sha
+              || ''
+            }}
           token: >-
             ${{
               github.event_name == 'workflow_dispatch'
@@ -92,10 +101,20 @@ jobs:
               || secrets.FRO_BOT_PAT
             }}
 
-      # CUSTOMIZE: Add project-specific setup steps here (e.g. install deps).
+      - name: Setup pnpm
+        uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        with:
+          cache: pnpm
+          node-version-file: .node-version
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Run Fro Bot
-        uses: fro-bot/agent@dc55897722fe837333acad989dd5e42b377b3bae # v0.26.14
+        uses: fro-bot/agent@ace26b770cc0efd5c65c3b8e091c2f7e167ae372 # v0.26.16
         env:
           OPENCODE_PROMPT_ARTIFACT: 'true'
           PROMPT: >-
