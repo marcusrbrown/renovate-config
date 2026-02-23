@@ -114,7 +114,7 @@ jobs:
         run: pnpm install
 
       - name: Run Fro Bot
-        uses: fro-bot/agent@ace26b770cc0efd5c65c3b8e091c2f7e167ae372 # v0.26.16
+        uses: fro-bot/agent@a374fc485acbd20a4fde8486800ff00b79776721 # v0.26.20
         env:
           OPENCODE_PROMPT_ARTIFACT: 'true'
           PROMPT: >-
