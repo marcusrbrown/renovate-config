@@ -19,7 +19,7 @@
   "type": "module",
   "main": "default.json",
   "scripts": {
-    "bootstrap": "pnpm install --prefer-offline --loglevel warn",
+    "bootstrap": "pnpm install --no-strict-peer-dependencies --prefer-offline",
     "lint": "eslint",
     "fix": "eslint --fix",
     "prepare": "simple-git-hooks"
@@ -29,7 +29,7 @@
   },
   "lint-staged": {
     "*.{js,json,jsx,md,toml,ts,tsx,yml,yaml}": [
-      "eslint --fix"
+      "pnpm run fix"
     ]
   },
   "prettier": "@bfra.me/prettier-config/120-proof",
