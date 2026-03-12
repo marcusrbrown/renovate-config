@@ -4,7 +4,6 @@
   "extends": [
     "github>bfra-me/renovate-config#5.2.0",
     "github>bfra-me/renovate-config:fro-bot.json5#5.2.0",
-    "github>bfra-me/renovate-config:renovate-config.json5(marcusrbrown/renovate-config)#5.2.0",
     ":assignAndReview(marcusrbrown)",
     ":disableRateLimiting",
     ":preserveSemverRanges",
