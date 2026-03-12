@@ -2,8 +2,9 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Use the default config preset for all @marcusrbrown repositories.",
   "extends": [
-    "github>bfra-me/renovate-config#5.1.0",
-    "github>bfra-me/renovate-config:fro-bot.json5#5.1.0",
+    "github>bfra-me/renovate-config#5.2.0",
+    "github>bfra-me/renovate-config:fro-bot.json5#5.2.0",
+    "github>bfra-me/renovate-config:renovate-config.json5(marcusrbrown/renovate-config)#5.2.0",
     ":assignAndReview(marcusrbrown)",
     ":disableRateLimiting",
     ":preserveSemverRanges",

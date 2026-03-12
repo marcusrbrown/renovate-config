@@ -2,10 +2,25 @@
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   description: ['Use the config preset for the @marcusrbrown/renovate-config repository'],
   extends: ['local>marcusrbrown/renovate-config', 'github>sanity-io/renovate-config:semantic-commit-type'],
+  customManagers: [
+    {
+      customType: 'regex',
+      description: ['Update `bfra-me/renovate-config` preset from GitHub releases.'],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'bfra-me/renovate-config',
+      managerFilePatterns: ['/^default\\.json$/'],
+      matchStrings: [
+        '[\'"]github>bfra-me/renovate-config#(?<currentValue>[^\'" \\n\\(]+)',
+        '[\'"]github>bfra-me/renovate-config/[^#]+#(?<currentValue>[^\'" \\n]+)',
+        '[\'"]github>bfra-me/renovate-config:[^#]+#(?<currentValue>[^\'" \\n]+)',
+      ],
+    },
+  ],
   packageRules: [
     {
       matchPackageNames: [
         '@semantic-release/{/,}**',
+        'bfra-me/renovate-config',
         'conventional-changelog-conventionalcommits',
         'semantic-release',
         'semantic-release-export-data',
