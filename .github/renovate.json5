@@ -1,11 +1,7 @@
 {
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   description: ['Use the config preset for the @marcusrbrown/renovate-config repository'],
-  extends: [
-    'local>marcusrbrown/renovate-config',
-    'github>sanity-io/renovate-config:semantic-commit-type',
-    ':assignAndReview(fro-bot)',
-  ],
+  extends: ['local>marcusrbrown/renovate-config', 'github>sanity-io/renovate-config:semantic-commit-type'],
   packageRules: [
     {
       matchPackageNames: [

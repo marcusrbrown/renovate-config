@@ -46,6 +46,5 @@ jobs:
           'archived-repository.json',
           'default.json',
           'onboarding.json',
-          'personal.json',
         ]
       print-config: ${{ inputs.print-config || false }}
