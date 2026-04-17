@@ -26,7 +26,7 @@
   "prHeader": "This PR belongs to a repository that is using the [archived-repository](https://github.com/marcusrbrown/renovate-config/blob/main/archived-repository.json) Renovate config preset and should be closed.",
   "prHourlyLimit": 0,
   "rebaseWhen": "never",
-  "recreateClosed": false,
+  "recreateWhen": "never",
   "updateNotScheduled": true,
   "vulnerabilityAlerts": {
     "enabled": false
