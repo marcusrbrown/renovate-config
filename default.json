@@ -2,13 +2,13 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Use the default config preset for all @marcusrbrown repositories.",
   "extends": [
-    "github>bfra-me/renovate-config#5.2.1",
-    "github>bfra-me/renovate-config:fro-bot.json5#5.2.1",
     ":assignAndReview(marcusrbrown)",
     ":preserveSemverRanges",
+    "group:allNonMajor",
     "npm:unpublishSafe",
     "helpers:pinGitHubActionDigestsToSemver",
-    "group:allNonMajor"
+    "github>bfra-me/renovate-config#5.2.1",
+    "github>bfra-me/renovate-config:fro-bot.json5#5.2.1"
   ],
   "suppressNotifications": ["prIgnoreNotification"],
   "packageRules": [
