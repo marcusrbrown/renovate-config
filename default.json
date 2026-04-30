@@ -5,13 +5,11 @@
     "github>bfra-me/renovate-config#5.2.1",
     "github>bfra-me/renovate-config:fro-bot.json5#5.2.1",
     ":assignAndReview(marcusrbrown)",
-    ":disableRateLimiting",
     ":preserveSemverRanges",
     "npm:unpublishSafe",
     "helpers:pinGitHubActionDigestsToSemver"
   ],
   "suppressNotifications": ["prIgnoreNotification"],
-  "schedule": ["at any time"],
   "packageRules": [
     {
       "description": "Group major updates of `semantic-release` and `conventional-changelog-conventionalcommits`.",
