@@ -18,13 +18,14 @@ on:
     inputs:
       prompt:
         description: Custom prompt for the Fro Bot agent
-        required: true
+        required: false
   workflow_call:
     inputs:
       prompt:
         description: Prompt passed by reusable caller workflow
-        required: true
+        required: false
         type: string
+        default: ''
 
 permissions:
   contents: read
@@ -35,6 +36,7 @@ concurrency:
       github.event.issue.number ||
       github.event.pull_request.number ||
       github.event.discussion.number ||
+      (github.event_name == 'schedule' && 'scheduled-maintenance') ||
       github.run_id
     }}
   cancel-in-progress: false
@@ -55,7 +57,8 @@ env:
       break existing consumer workflows
     - Consistency with the base preset extended from bfra-me/renovate-config
 
-    Do NOT push commits, modify code, or create branches. Review only.
+    Do NOT push commits, modify code, create branches, merge PRs, approve PRs,
+    request reviewers, or mention other users. Review only.
     Use inline comments for file-specific issues. Reserve the review body
     for the structured summary below.
 
@@ -72,43 +75,308 @@ env:
     Do not omit any heading.
 
   SCHEDULE_PROMPT: |
-    Perform daily repository maintenance and update a SINGLE rolling issue
-    titled "Daily Maintenance Report" in this repository.
+    Perform daily progressive repository improvement for
+    marcusrbrown/renovate-config — a collection of shareable Renovate
+    configuration presets consumed by repositories in the @marcusrbrown,
+    @bfra-me, and @fro-bot organizations. Read AGENTS.md for full project
+    conventions before making changes.
 
-    Search for an issue with this exact title. If multiple matches exist,
-    use the most recently updated one. If no open issue exists, create it.
-    If the most recent matching issue is closed, reopen it instead of
-    creating a new one.
+    EXECUTION MODEL
+    Analyze all categories independently, but perform write actions serially.
+    Do not keep multiple branches checked out at once. Complete one mutation,
+    return to a clean working tree, then continue.
 
-    Append a new dated section for each run using "## YYYY-MM-DD (UTC)".
-    To keep the issue bounded: after appending today's section, replace any
-    individual daily sections older than 14 days with a single
-    "## Historical Summary" section that lists only the count of prior runs
-    and any items that remained unresolved across those runs. If a
-    Historical Summary already exists, update it in place — do not create
-    a second one.
+    DEDUPLICATION (applies to ALL categories)
+    Before creating any new PR or issue, search for an existing open
+    bot-authored PR/issue for the same root cause. Reuse or update the
+    existing item instead of creating a duplicate.
 
-    Include links only (no full content duplication). Keep it concise and
-    actionable. Flag items that appear in the stale list for the first time
-    (not present in the previous dated section) with a ★ marker.
+    SCOPE CAP
+    If the smallest safe fix is not clearly minimal and reversible (e.g.,
+    broad refactor, architecture change, or many-file edit), do not
+    auto-heal it. Open or update the perpetual issue and log it under
+    "Needs Human Attention".
 
-    Sections (in order):
-    - Summary metrics (issues opened since last run, currently open PRs,
-      stale issues/PRs count, main branch check status, security alerts
-      if accessible)
-    - Stale issues (no activity >30 days; recommend next step)
-    - Stale PRs (no activity >7 days; stale >14 days)
-    - Unassigned bugs (label bug, no assignee)
-    - Recommended actions (bulleted checklist)
-    - Notes (use "data unavailable" for any inaccessible data source)
+    DEPENDENCY OWNERSHIP
+    Renovate owns routine dependency/version bumps via the self-referential
+    config in .github/renovate.json5 with postUpgradeTasks running
+    `pnpm run bootstrap` and `pnpm run fix`. You may change dependency
+    versions only when remediating a confirmed security advisory
+    (critical/high) or repairing an existing security-update PR. Do not
+    create non-security version-bump PRs, and do not batch unrelated
+    dependency changes into a security fix. Do NOT modify package.json
+    versions outside category 2 security remediation.
 
-    Do NOT comment on or modify individual issues/PRs. Do NOT apply labels.
-    Do NOT open PRs. This run must update ONE issue only.
+    1. ERRORED PRs
+       Find open PRs with failing CI checks. Skip dependency/security
+       update PRs here; handle them only in category 2.
+       Only fix PRs whose head branch is in this repository, writable by
+       this token, and authored by a trusted source (repository
+       owner/collaborator with write access, or an approved automation bot
+       such as Renovate/Dependabot). If author trust cannot be established,
+       skip the PR and log it under "Needs Human Attention".
+       If the PR touches workflows, automation prompts, lockfiles, or
+       execution scripts, do not run project commands from that branch.
+       Skip it and log why.
+       For each fixable PR:
+       a. Check out the PR branch.
+       b. Read the failing check logs to diagnose the root cause.
+       c. Fix the issue (lint failures, JSON validation errors, formatting
+          breaks, invalid Renovate config syntax).
+       d. Run `pnpm run lint` to verify the fix does not introduce new
+          failures.
+       e. Commit with a clear conventional-commit message and push to the
+          PR branch.
+       f. Comment on the PR explaining what failed and what was fixed.
+       g. Never modify .github/workflows/fro-bot.yaml or this prompt while
+          repairing an errored PR. If the failing run appears caused by the
+          Fro Bot workflow itself, skip the PR and log it under "Needs Human
+          Attention".
+
+    2. SECURITY
+       Review Dependabot/Renovate alerts and open PRs for vulnerable deps.
+       - If a security update PR exists but has conflicts or failures,
+         fix and push to that PR branch.
+       - For unaddressed critical/high advisories with no existing PR,
+         create a new PR with the remediation.
+       - Do NOT bulk-update unrelated deps in a security PR.
+       If security advisory/alert data is unavailable to the token or CLI,
+       skip this category and note "security alerts unavailable" under
+       "Needs Human Attention". Do not guess.
+
+    3. CONFIG VALIDATION & PRESET QUALITY
+       Validate all Renovate preset files (default.json, onboarding.json,
+       archived-repository.json) and the self-referential config
+       (.github/renovate.json5):
+       - Verify each file is valid JSON/JSON5 and conforms to
+         https://docs.renovatebot.com/renovate-schema.json.
+       - Check for deprecated Renovate configuration options by consulting
+         the Renovate docs. If deprecated options are found, open or update
+         a single issue listing deprecated options, their replacements, and
+         which files are affected.
+       - Verify the base preset pin (github>bfra-me/renovate-config#...)
+         in default.json references a valid, released version. If a newer
+         compatible version exists, note it in the report but do NOT update
+         the pin (Renovate handles version bumps).
+       - Check that matchPackageNames patterns and matchSourceUrlPrefixes
+         use valid syntax and refer to existing package scopes/orgs.
+       - Verify packageRules do not conflict (e.g., overlapping matchers
+         with contradictory automerge/enabled settings).
+       - Run `pnpm run lint` to catch ESLint/Prettier violations.
+       Report findings but do not auto-fix config logic issues. Only
+       auto-fix formatting/lint failures in category 4.
+
+    4. DEVELOPER EXPERIENCE
+       Ensure consistent linting, formatting, and static analysis.
+       Run `pnpm run lint` to detect issues. Auto-fix with `pnpm run fix`.
+       Open a PR for all fixes — never commit directly to the default
+       branch. Group related lint/format fixes into a single PR.
+       Verify the fix PR passes CI before reporting it as fixed.
+
+    5. CROSS-PROJECT INTELLIGENCE (INBOUND)
+       Survey Marcus's other repos for patterns, tooling, and conventions
+       that could improve THIS repo. The goal is inbound intelligence —
+       what can we learn from the portfolio to make renovate-config better?
+
+       Use `gh` CLI for all queries. Observation only — never modify
+       other repos.
+
+       Focus repos (check these every run; the list should evolve over
+       time — drop repos that consistently have nothing actionable, add
+       repos that become relevant):
+       - `marcusrbrown/yield-farmer` — agentic safety guardrails,
+         Fro Bot prompt evolution, cross-project intelligence patterns,
+         single-issue autoheal format
+       - `marcusrbrown/poly` — autohealing strategy, CI hardening,
+         upstream modernization watch, hard boundaries
+       - `marcusrbrown/.github` — shared workflows, templates,
+         org-level conventions
+       - `bfra-me/renovate-config` — upstream preset evolution
+       - `fro-bot/agent` — Fro Bot/OpenCode runtime capabilities and
+         release notes
+
+       For each focus repo, check:
+       a. Tooling patterns: any build/test/CI tools we don't use?
+       b. Fro Bot version: compare `fro-bot/agent@` SHA if present.
+       c. CI patterns: any workflow improvements we could adopt?
+       d. Renovate config: any preset evolution worth adopting?
+       e. New dependencies or conventions worth evaluating for
+          renovate-config.
+
+       Keep findings actionable and specific to renovate-config. Skip repos
+       with nothing notable. Adapt foreign-stack findings only when there's
+       a clear equivalent in the JSON/preset ecosystem.
+
+       Hard boundaries:
+       - NEVER modify other repositories.
+       - NEVER open PRs, issues, or comments in other repositories.
+       - NEVER clone or check out other repositories.
+       - All findings go into the perpetual summary issue in THIS
+         repository only.
+       - If `gh` queries fail for a repo, skip it and note why.
+
+    6. UPSTREAM MODERNIZATION WATCH (SUNDAYS ONLY)
+       Track release notes of pinned upstream dependencies and identify
+       config or feature opportunities we have not yet adopted. The goal
+       is to keep renovate-config current with upstream evolution without
+       chasing every release.
+
+       Cadence: this category runs only when the IS_SUNDAY_UTC
+       environment variable is 'true' (Sunday UTC, as detected by the
+       workflow's preflight). Before doing any category 6 work, read
+       this variable with `echo $IS_SUNDAY_UTC` or equivalent. On other
+       days, skip entirely and omit the corresponding section from the
+       daily summary.
+
+       Pinned upstreams to review:
+       - `fro-bot/agent` in .github/workflows/fro-bot.yaml
+         → upstream repo: fro-bot/agent
+       - `actions/checkout` in .github/workflows/fro-bot.yaml
+       - `pnpm/action-setup` in .github/workflows/fro-bot.yaml
+       - `actions/setup-node` in .github/workflows/fro-bot.yaml
+       - `@bfra.me/eslint-config` and `@bfra.me/prettier-config` in
+         package.json
+
+       For each upstream, in order:
+       a. Parse the workflow or package.json to extract the currently
+          pinned version (semver tag preferred; fall back to digest).
+       b. List GitHub releases newer than the pinned version via
+          `gh api repos/<owner>/<repo>/releases`.
+       c. Read each release body. Filter for changes that touch:
+          - new config keys we could enable
+          - new endpoints, healthchecks, or operational hooks
+          - security or hardening features with config knobs
+          - default behavior changes that affect us
+
+       Output: file findings under the perpetual issue. If an open issue
+       with the prefix "Upstream Modernization Watch —" already exists,
+       update its body in place rather than creating a new issue.
+
+       Action policy:
+       - For mechanical, low-risk changes that touch only docstrings,
+         AGENTS.md, or config example files, open a draft PR.
+       - For changes that would touch .github/workflows/, package.json,
+         pnpm-lock.yaml, or any preset JSON file, document in the
+         tracking issue only — never open a PR.
+       - At most one draft PR per scan. Batch multiple low-risk
+         mechanical changes into the single PR.
+
+       Hard boundaries:
+       - NEVER bump pinned versions in this category. Renovate owns
+         version bumps. Adopt new config or features only at the
+         version we are already on or above.
+       - NEVER modify upstream repositories.
+       - If a release-notes API call fails for an upstream, skip it
+         and note "release notes unreachable" in the tracking issue.
+
+    SINGLE ISSUE MANAGEMENT
+    Manage a SINGLE perpetual issue titled "Daily Autohealing Report".
+
+    Finding the perpetual issue:
+    1. Search for an open issue titled "Daily Autohealing Report" (exact match).
+    2. If found, use that issue for all updates.
+    3. If not found, create a new issue with that exact title.
+    4. If the most recent matching issue is closed, reopen it instead of
+       creating a new one.
+
+    Updating the issue:
+    PREPEND a new dated section to the TOP of the issue body. Newest update is
+    always first. If a section has no rows, write "None." instead of an empty table.
+
+    ## Update — YYYY-MM-DD (UTC)
+
+    ### Errored PRs
+    | PR | Failure | Fix | Status |
+    | --- | --- | --- | --- |
+    | #N | [root cause] | [what was fixed] | ✅ Fixed / ⚠️ Needs review / ⏭️ Skipped |
+
+    ### Security
+    | Advisory / PR | Severity | Action Taken |
+    | --- | --- | --- |
+    | [advisory or #N] | Critical/High/Medium | [fix pushed / PR created / skipped] |
+
+    ### Config Validation & Preset Quality
+    | File | Check | Result | Action |
+    | --- | --- | --- | --- |
+    | default.json | Schema valid | ✅ / ❌ | [details or #N] |
+    | default.json | Deprecated options | ✅ None / ⚠️ Found | [details or #N] |
+    | default.json | Base preset current | ✅ / ⚠️ Newer available | [version info] |
+    | default.json | Rule conflicts | ✅ None / ⚠️ Found | [details] |
+    | onboarding.json | Schema valid | ✅ / ❌ | [details or #N] |
+    | archived-repository.json | Schema valid | ✅ / ❌ | [details or #N] |
+    | .github/renovate.json5 | Schema valid | ✅ / ❌ | [details or #N] |
+    | All presets | Lint/format | ✅ Clean / ⚠️ Issues | [#N or details] |
+
+    ### Developer Experience
+    - [list of each PR or fix with summary link, or "None."]
+
+    ### Cross-Project Intelligence (Inbound)
+    | Repo | Finding | Actionable for renovate-config? | Priority |
+    | --- | --- | --- | --- |
+    | [repo] | [pattern or drift] | [specific action or "monitor"] | High/Med/Low |
+
+    ### Upstream Modernization Watch
+    [Sunday-only. Omit this entire section on non-Sundays.]
+
+    ### Needs Human Attention
+    - [items that could not be auto-fixed, with context]
+
+    ---
+
+    Daily issue cleanup:
+    After updating the perpetual issue, search for any open issues titled
+    "Daily Autohealing Report — YYYY-MM-DD" (dated format). Close all such
+    older daily issues with a comment: "Consolidated into the perpetual
+    Daily Autohealing Report. See #<perpetual-issue-number>."
+
+    Rules for the perpetual issue:
+    - DO NOT create new daily issues. Always update the perpetual issue.
+    - DO NOT close the perpetual issue.
+    - ALWAYS prepend new updates to existing content (newest at top).
+    - DO NOT comment on individual issues or PRs unless category 1 fixed
+      a failing PR (then ONLY post the fix-summary comment on that PR).
+
+    Hard boundaries:
+    - Never force-push, rewrite history, or delete branches.
+    - Never push directly to main. Direct pushes are allowed only to an
+      existing non-default PR branch you are repairing under category 1
+      or category 2.
+    - Never merge PRs, submit reviews/approvals, close/reopen PRs or
+      issues, or modify branch protection. This workflow may only push
+      fixes, open/update PRs, open/update issues, and comment on PRs
+      when a fix was pushed.
+    - Never modify secrets, org settings, environments, or branch
+      protection.
+    - Never make checks pass by disabling tests, deleting failing
+      assertions, weakening lint rules, or editing workflows /
+      configuration only to suppress failures.
+    - Never modify .github/workflows/, lint/build config, or automation
+      prompt files unless the failing run is caused by a genuine bug in
+      that file, the change is narrowly scoped, and the summary explains
+      why.
+    - If the smallest safe fix would weaken a guardrail or reduce
+      validation, skip it and log it under "Needs Human Attention".
+    - Cross-project intelligence (category 5) MUST NOT modify other repos.
+    - Upstream modernization watch (category 6) MUST NOT bump pinned
+      versions (Renovate-owned) or modify upstream repositories.
+
+    Project conventions (MUST follow for code changes):
+    - JSON presets: 2-space indent, include $schema, include description
+    - JSON5 for local configs (.github/renovate.json5), JSON for presets
+    - GitHub Actions: pin to full commit SHA with semver comment
+    - Package manager: pnpm (not npm/yarn)
+    - YAML extension: .yaml, not .yml
+    - Commit messages: conventional commit format (feat/fix/build/chore)
 
 jobs:
   fro-bot:
     name: Fro Bot
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      discussions: write
+      issues: write
+      pull-requests: write
     if: >-
       (
         github.event.pull_request == null ||
@@ -120,7 +388,8 @@ jobs:
         (
           github.event_name == 'issues' &&
           !endsWith(github.event.issue.user.login || '', '[bot]') &&
-          (github.event.issue.user.login || '') != 'fro-bot'
+          (github.event.issue.user.login || '') != 'fro-bot' &&
+          contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.issue.author_association || '')
         ) ||
         (
           github.event_name == 'pull_request' &&
@@ -129,7 +398,7 @@ jobs:
         ) ||
         github.event_name == 'schedule' ||
         github.event_name == 'workflow_dispatch' ||
-        inputs.prompt != '' ||
+        github.event_name == 'workflow_call' ||
         (
           (github.event_name == 'issue_comment' ||
            github.event_name == 'pull_request_review_comment' ||
@@ -140,11 +409,39 @@ jobs:
         )
       )
     steps:
+      - name: Refuse fork PR heads from comment triggers
+        if: github.event_name == 'issue_comment' && github.event.issue.pull_request
+        env:
+          GH_TOKEN: ${{ secrets.FRO_BOT_PAT }}
+        run: |
+          pr_number="${{ github.event.issue.number }}"
+          is_fork=$(gh api "repos/${{ github.repository }}/pulls/${pr_number}" --jq '.head.repo.fork')
+          if [ "$is_fork" = "true" ]; then
+            echo "::error::Refusing to check out fork PR head from comment trigger (PR #${pr_number})."
+            exit 1
+          fi
+
+      - name: Detect Sunday UTC for upstream watch cadence
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          if [ "$(date -u +%u)" = "7" ]; then
+            echo "IS_SUNDAY_UTC=true" >> "$GITHUB_ENV"
+          else
+            echo "IS_SUNDAY_UTC=false" >> "$GITHUB_ENV"
+          fi
+
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
+          ref: >-
+            ${{
+              (github.event.issue.pull_request && format('refs/pull/{0}/head', github.event.issue.number))
+              || github.event.pull_request.head.sha
+              || ''
+            }}
           token: ${{ secrets.FRO_BOT_PAT }}
+          persist-credentials: false
 
       - name: Setup pnpm
         uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
@@ -162,11 +459,11 @@ jobs:
         uses: fro-bot/agent@1563f2987343b5e8d30ba818920d0ac563c617fa # v0.43.0
         env:
           OPENCODE_PROMPT_ARTIFACT: 'true'
+          IS_SUNDAY_UTC: ${{ env.IS_SUNDAY_UTC || 'false' }}
           PROMPT: >-
             ${{
-              (github.event_name == 'workflow_dispatch' && (github.event.inputs.prompt || ''))
-              || inputs.prompt
-              || (github.event_name == 'schedule' && env.SCHEDULE_PROMPT)
+              inputs.prompt
+              || ((github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && !inputs.prompt)) && env.SCHEDULE_PROMPT)
               || (github.event_name == 'pull_request' && env.PR_REVIEW_PROMPT)
               || ''
             }}
@@ -177,3 +474,4 @@ jobs:
           omo-providers: ${{ secrets.OMO_PROVIDERS }}
           opencode-config: ${{ secrets.OPENCODE_CONFIG }}
           prompt: ${{ env.PROMPT }}
+          timeout: 0
