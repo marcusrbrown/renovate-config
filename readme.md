@@ -10,4 +10,32 @@
 
 </div>
 
-Shareable Renovate configuration presets for common package ecosystems. Specific customizations for my personal repositories are in the `personal` preset.
+Shareable [Renovate](https://docs.renovatebot.com/) configuration presets for my personal GitHub repositories.
+
+## Available Presets
+
+| Preset | Description | Usage |
+| --- | --- | --- |
+| [`default`](default.json) | Main preset for all `@marcusrbrown` repositories. Extends `bfra-me/renovate-config` with personal customizations, automerge rules, and package grouping. | `extends: ["github>marcusrbrown/renovate-config"]` |
+| [`onboarding`](onboarding.json) | Configuration used when onboarding new repositories to Renovate. | `extends: ["github>marcusrbrown/renovate-config:onboarding"]` |
+| [`archived-repository`](archived-repository.json) | Preset for archived repositories to disable dependency updates and autoclose dashboards. | `extends: ["github>marcusrbrown/renovate-config:archived-repository"]` |
+
+## Usage
+
+Add one of the following to your repository's `.github/renovate.json5`:
+
+```json5
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: ['github>marcusrbrown/renovate-config'],
+}
+```
+
+To pin to a specific major version:
+
+```json5
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: ['github>marcusrbrown/renovate-config#v5'],
+}
+```
