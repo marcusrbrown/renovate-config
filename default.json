@@ -52,6 +52,11 @@
       "description": "Require recent versions of my Renovate config presets.",
       "matchPackageNames": ["marcusrbrown/renovate-config"],
       "allowedVersions": ">=5.0.0"
+    },
+    {
+      "description": "Ungroup unstable (v0.x[.x]) packages so they are not grouped by presets such as `group:allNonMajor`.",
+      "matchCurrentVersion": "/^0\\./",
+      "groupName": null
     }
   ]
 }
