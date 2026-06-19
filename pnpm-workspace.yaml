@@ -2,6 +2,9 @@ allowBuilds:
   simple-git-hooks: true
   unrs-resolver: true
 
+overrides:
+  undici: 7.28.0
+
 onlyBuiltDependencies:
   - simple-git-hooks
 
