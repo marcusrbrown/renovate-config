@@ -18,5 +18,5 @@ shellEmulator: true
 strictPeerDependencies: false
 
 minimumReleaseAgeExclude:
-  - '@bfra.me/eslint-config@0.51.2 || 0.51.3 || 0.51.4'
+  - '@bfra.me/eslint-config@0.51.2 || 0.51.3 || 0.51.4 || 0.52.0'
   - '@bfra.me/prettier-config@0.16.10 || 0.16.11'
