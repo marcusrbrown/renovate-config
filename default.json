@@ -7,8 +7,8 @@
     "group:allNonMajor",
     "npm:unpublishSafe",
     "helpers:pinGitHubActionDigestsToSemver",
-    "github>bfra-me/renovate-config#5.2.8",
-    "github>bfra-me/renovate-config:fro-bot.json5#5.2.8"
+    "github>bfra-me/renovate-config#5.3.0",
+    "github>bfra-me/renovate-config:fro-bot.json5#5.3.0"
   ],
   "suppressNotifications": ["prIgnoreNotification"],
   "packageRules": [
