@@ -7,7 +7,7 @@ settings:
 overrides:
   fast-uri: 3.1.9
   js-yaml: 4.3.2
-  undici: 7.30.1
+  undici: 7.30.2
 
 importers:
 
@@ -2467,8 +2467,8 @@ packages:
     engines: {node: '>=0.8.0'}
     hasBin: true
 
-  undici@7.30.1:
-    resolution: {integrity: sha512-03KrMbjIFDWQR5RNPrSw3bd1r12JpyFQl9/yxjUbJtqkjmllqC5lFjZh6ujeuJCKr8EOQvRW872Oy/az+nLYxg==}
+  undici@7.30.2:
+    resolution: {integrity: sha512-mLyPQnHwUxaM/rideoK/+KL8DaAJLRl4aBCfmX444aCSLnIaomqPLtNRe2jdCYcsk5wZzXrDIQC8ZeYNRAYyIA==}
     engines: {node: '>=20.18.1'}
 
   unicode-emoji-modifier-base@1.0.0:
@@ -2620,7 +2620,7 @@ snapshots:
   '@actions/http-client@4.0.1':
     dependencies:
       tunnel: 0.0.6
-      undici: 7.30.1
+      undici: 7.30.2
 
   '@actions/io@3.0.2': {}
 
@@ -2926,7 +2926,7 @@ snapshots:
       p-filter: 4.1.0
       semantic-release: 25.0.9(supports-color@7.2.0)(typescript@6.0.3)
       tinyglobby: 0.2.17
-      undici: 7.30.1
+      undici: 7.30.2
       url-join: 5.2.0
     transitivePeerDependencies:
       - kerberos
@@ -5263,7 +5263,7 @@ snapshots:
   uglify-js@3.19.3:
     optional: true
 
-  undici@7.30.1: {}
+  undici@7.30.2: {}
 
   unicode-emoji-modifier-base@1.0.0: {}
 
