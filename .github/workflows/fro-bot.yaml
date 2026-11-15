@@ -460,4 +460,5 @@ jobs:
           model: ${{ vars.FRO_BOT_MODEL }}
           opencode-config: ${{ secrets.OPENCODE_CONFIG }}
           prompt: ${{ env.PROMPT }}
+          isolate-agent: true
           timeout: 0
