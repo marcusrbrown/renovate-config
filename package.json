@@ -40,7 +40,7 @@
     "eslint": "10.15.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-prettier": "5.5.7",
-    "lint-staged": "17.6.1",
+    "lint-staged": "17.6.2",
     "markdownlint": "0.40.0",
     "prettier": "3.10.1",
     "semantic-release": "25.0.9",
